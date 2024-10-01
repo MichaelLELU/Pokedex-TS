@@ -1,3 +1,7 @@
+import Types from "./Types";
+
+//todo trouver les bon type pour les props
+
 export default function NavBar({ mode, setMode }) {
   const toggleOnClick = () => {
     setMode(!mode);
@@ -15,12 +19,7 @@ export default function NavBar({ mode, setMode }) {
           </button>
         </li>
         <li>
-          {/*           <a href="/types">
-            <select name="" id="">
-              {" "}
-              <option value=""></option>
-            </select>
-          </a> */}
+          <Types />
         </li>
       </ul>
     </nav>

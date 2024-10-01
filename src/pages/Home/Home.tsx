@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
 import PokemonCard from "../../component/PokemonCard";
-import Types from "../../component/Types";
+
 import "./Home.css";
 
 type PokemonType = {
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <h1>Bienvenu Dresseur</h1>
-      <Types />
+
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
           <PokemonCard key={p.id} pokemon={p} />
