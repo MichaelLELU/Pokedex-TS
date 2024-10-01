@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Types() {
@@ -24,12 +25,12 @@ export default function Types() {
       {show === true ? (
         <div className="type-container">
           {dataType?.map((t) => (
-            <a href={`/type/${t.name}`}>
+            <Link to={`/type/${t.name}`}>
               <div className="type-card">
                 <h2>{t.name}</h2>
                 <img src={t.image} alt={t.name} />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       ) : null}

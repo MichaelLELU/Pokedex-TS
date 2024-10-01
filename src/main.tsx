@@ -6,6 +6,7 @@ import App from "./App.tsx";
 import "./index.css";
 import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
+import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
         element: <DetailsPage />,
         loader: ({ params }) =>
           fetch(`https://pokebuildapi.fr/api/v1/pokemon/${params.name}`),
+      },
+      {
+        path: "/teambuilder",
+        element: <TeamRandom />,
+        loader: () =>
+          fetch(`https://pokebuildapi.fr/api/v1/random/team/suggest`),
       },
     ],
   },

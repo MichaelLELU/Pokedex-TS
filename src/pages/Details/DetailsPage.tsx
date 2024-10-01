@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import "./DetailsPage.css";
 
 export default function DetailsPage() {
@@ -27,24 +27,28 @@ export default function DetailsPage() {
       <div className="type-button">
         {pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
-            <a key={id} href={`/type/${type.name}`} className="button-type">
+            <Link key={id} to={`/type/${type.name}`} className="button-type">
               <img className="type" src={type.image} />
               <p>{type.name}</p>
-            </a>
+            </Link>
           )
         )}
       </div>
-      <article>
-        <h2>Evolution(s) :</h2>
-        {pokemon.apiEvolutions.map((evo: { name: string; id: number }) => (
-          <a key={evo.id} href={`./${evo.name}`}>
-            <h3>{evo.name}</h3>
-          </a>
-        ))}
-        {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
-        <a href={`./${pokemon.apiPreEvolution.name}`}>
-          <h3>{pokemon.apiPreEvolution.name}</h3>
-        </a>
+      <article className="evolutions-container">
+        <div>
+          {pokemon.apiEvolutions.length === 0 ? null : <h2>Evolution(s) :</h2>}
+          {pokemon.apiEvolutions.map((evo: { name: string; id: number }) => (
+            <Link key={evo.id} to={`/pokemon/${evo.name}`}>
+              <h3>{evo.name}</h3>
+            </Link>
+          ))}
+        </div>
+        <div>
+          {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
+          <Link to={`/pokemon/${pokemon.apiPreEvolution.name}`}>
+            <h3>{pokemon.apiPreEvolution.name}</h3>
+          </Link>
+        </div>
       </article>
     </div>
   );

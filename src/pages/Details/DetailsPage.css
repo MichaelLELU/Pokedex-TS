@@ -30,3 +30,9 @@
     margin: 0;
   }
 }
+
+.evolutions-container {
+  margin-top: 2em;
+  display: flex;
+  gap: 3em;
+}

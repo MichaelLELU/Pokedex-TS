@@ -1,0 +1,36 @@
+.section-resist {
+  margin-top: 3em;
+  padding-bottom: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid #000000;
+}
+
+th {
+  background-color: #1b1a1a;
+  color: white;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #191919;
+}
+
+td {
+  color: wheat;
+}

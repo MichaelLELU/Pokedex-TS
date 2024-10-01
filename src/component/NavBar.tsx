@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Types from "./Types";
 
 //todo trouver les bon type pour les props
@@ -11,7 +12,10 @@ export default function NavBar({ mode, setMode }) {
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/teambuilder">équipe aléatoire</Link>
         </li>
         <li>
           <button onClick={toggleOnClick}>
