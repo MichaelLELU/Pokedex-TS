@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./PokemonCard.css";
 
-type poketype = {
+export type poketype = {
+  id: number;
   pokemon: {
+    id: number;
     name: string;
     pokedexId: number;
     image: string;

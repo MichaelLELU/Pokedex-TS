@@ -1,18 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-import PokemonCard from "../../component/PokemonCard";
+import PokemonCard, { poketype } from "../../component/PokemonCard";
 import axios from "axios";
 import "./TeamRandom.css";
-
-type poketype = {
-  pokemon: {
-    id: number;
-    name: string;
-    pokedexId: number;
-    image: string;
-    apiTypes: { name: string; image: string }[];
-  };
-};
 
 export default function TeamRandom() {
   const TeamRandom = useLoaderData() as poketype[];
@@ -64,3 +54,5 @@ export default function TeamRandom() {
     </div>
   );
 }
+
+// todo trouver les bon type pour les props pour les map
