@@ -12,7 +12,6 @@ export default function DetailsPage() {
     apiPreEvolution: { name: string };
   };
 
-  console.log(pokemon);
   return (
     <div className="details-container">
       <h1 className="detail-title">

@@ -1,9 +1,17 @@
 import { Outlet } from "react-router-dom";
-
+import { useState } from "react";
+import NavBar from "./component/NavBar";
 import "./App.css";
 
 function App() {
-  return <Outlet />;
+  const [mode, setMode] = useState(false);
+
+  return (
+    <body className={mode === true ? "light" : "dark"}>
+      <NavBar mode={mode} setMode={setMode} />
+      <Outlet />
+    </body>
+  );
 }
 
 export default App;

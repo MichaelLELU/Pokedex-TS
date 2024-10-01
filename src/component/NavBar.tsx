@@ -1,4 +1,8 @@
-export default function NavBar() {
+export default function NavBar({ mode, setMode }) {
+  const toggleOnClick = () => {
+    setMode(!mode);
+  };
+
   return (
     <nav>
       <ul>
@@ -6,15 +10,17 @@ export default function NavBar() {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/pokemons">Pokemons</a>
+          <button onClick={toggleOnClick}>
+            {mode ? "Dark Mode" : "Light Mode"}
+          </button>
         </li>
         <li>
-          <a href="/types">
+          {/*           <a href="/types">
             <select name="" id="">
               {" "}
               <option value=""></option>
             </select>
-          </a>
+          </a> */}
         </li>
       </ul>
     </nav>
