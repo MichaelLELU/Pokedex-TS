@@ -18,7 +18,7 @@ export default function PokemonCard(pokemon: poketype) {
   return (
     <div className="pokemon-card-container">
       <Link to={`/pokemon/${Pokemon.name}`}>
-        <h1>{Pokemon.name}</h1>
+        <h2>{Pokemon.name}</h2>
         <p>ID: {Pokemon.pokedexId}</p>
         <img src={Pokemon.image} alt={Pokemon.name} />
       </Link>

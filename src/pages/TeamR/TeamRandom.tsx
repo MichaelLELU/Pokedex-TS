@@ -23,7 +23,7 @@ export default function TeamRandom() {
   return (
     <>
       <h1>Équipe aléatoire</h1>
-      <p>
+      <p style={{ textAlign: "center" }}>
         Génère une liste de 3 Pokémon aléatoires, puis la complète avec 3 autres
         Pokémon pour obtenir une équipe aux résistances équilibrées
       </p>
