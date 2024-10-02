@@ -20,7 +20,7 @@ export default function PokemonCard(pokemon: poketype) {
       <Link to={`/pokemon/${Pokemon.name}`}>
         <h2>{Pokemon.name}</h2>
         <p>ID: {Pokemon.pokedexId}</p>
-        <img src={Pokemon.image} alt={Pokemon.name} />
+        <img src={Pokemon.image} alt={Pokemon.name} loading="lazy" />
       </Link>
       <div id="type-button">
         {Pokemon.apiTypes.map(
