@@ -26,7 +26,7 @@ export default function PokemonCard(pokemon: poketype) {
         {Pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
             <Link key={id} to={`/type/${type.name}`} className="button-type">
-              <img className="type" src={type.image} />
+              <img className="type" src={type.image} loading="lazy" />
               <p>{type.name}</p>
             </Link>
           )
