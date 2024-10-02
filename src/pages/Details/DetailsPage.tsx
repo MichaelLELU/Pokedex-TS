@@ -15,7 +15,7 @@ export default function DetailsPage() {
   return (
     <div className="details-container">
       <h1 className="detail-title">
-        {pokemon.name}{" "}
+        {pokemon.name}
         <img
           className="sprite"
           src={pokemon.sprite}

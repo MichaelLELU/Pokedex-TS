@@ -21,10 +21,10 @@ export default function TeamRandom() {
   console.log(resist);
 
   return (
-    <div>
-      <h1>Team Random</h1>
+    <>
+      <h1>Équipe aléatoire</h1>
       <p>
-        génère une liste de 3 Pokémon aléatoires puis la complète avec 3 autres
+        génère une liste de 3 Pokémon aléatoires, puis la complète avec 3 autres
         Pokémon pour obtenir une équipe aux résistances équilibrées
       </p>
 
@@ -51,7 +51,7 @@ export default function TeamRandom() {
           ))}
         </table>
       </section>
-    </div>
+    </>
   );
 }
 
