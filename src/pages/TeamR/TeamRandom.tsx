@@ -24,7 +24,7 @@ export default function TeamRandom() {
     <>
       <h1>Équipe aléatoire</h1>
       <p>
-        génère une liste de 3 Pokémon aléatoires, puis la complète avec 3 autres
+        Génère une liste de 3 Pokémon aléatoires, puis la complète avec 3 autres
         Pokémon pour obtenir une équipe aux résistances équilibrées
       </p>
 
@@ -34,7 +34,7 @@ export default function TeamRandom() {
         ))}
       </div>
       <section className="section-resist">
-        <button onClick={setOnClick}>voir les resistences</button>
+        <button onClick={setOnClick}>Voir les résistances</button>
         <p>
           <strong>{resist && resist[0].summary}</strong>
         </p>
