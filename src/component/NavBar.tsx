@@ -15,15 +15,15 @@ export default function NavBar({ mode, setMode }) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/teambuilder">équipe aléatoire</Link>
+          <Link to="/teambuilder">Équipe aléatoire</Link>
+        </li>
+        <li>
+          <Types />
         </li>
         <li>
           <button onClick={toggleOnClick}>
             {mode ? "Dark Mode" : "Light Mode"}
           </button>
-        </li>
-        <li>
-          <Types />
         </li>
       </ul>
     </nav>

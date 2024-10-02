@@ -1,9 +1,59 @@
+@font-face {
+  font-family: "SF Pixelate";
+  src: url("./assets/fonts/SFPixelate.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Futura T OT";
+  src: url("./assets/fonts/Futura_T_OT_Demi.ttf") format("truetype");
+}
+
+:root {
+  --color-black: #1d1d1d;
+  --color-white: #fefefe;
+}
+
+body {
+  font-family: "SF Pixelate";
+
+  button {
+    font-family: "SF Pixelate";
+  }
+
+  main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  nav {
+    font-family: "Futura T OT", sans-serif;
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    button {
+      font-family: "Futura T OT", sans-serif;
+    }
+  }
+
+  nav + h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
 .dark {
-  background-color: #1d1d1d;
-  color: white;
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 .light {
-  background-color: white;
-  color: #1d1d1d;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

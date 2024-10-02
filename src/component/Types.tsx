@@ -28,7 +28,7 @@ export default function Types() {
             <Link to={`/type/${t.name}`}>
               <div className="type-card">
                 <h2>{t.name}</h2>
-                <img src={t.image} alt={t.name} />
+                <img src={t.image} alt={t.name} loading="lazy" />
               </div>
             </Link>
           ))}

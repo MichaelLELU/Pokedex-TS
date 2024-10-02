@@ -6,7 +6,7 @@ export default function Home() {
   const dataPokemon = useLoaderData() as poketype[];
 
   return (
-    <div>
+    <>
       <h1>Bienvenu Dresseur</h1>
 
       <div className="pokemon-container">
@@ -14,7 +14,7 @@ export default function Home() {
           <PokemonCard key={p.id} pokemon={p} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
 //todo trouver les bon type pour les props

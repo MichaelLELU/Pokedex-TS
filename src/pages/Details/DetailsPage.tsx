@@ -15,20 +15,21 @@ export default function DetailsPage() {
   return (
     <div className="details-container">
       <h1 className="detail-title">
-        {pokemon.name}{" "}
+        {pokemon.name}
         <img
           className="sprite"
           src={pokemon.sprite}
           alt={`sprite of ${pokemon.name}`}
+          loading="lazy"
         />
       </h1>
       <p>ID: {pokemon.pokedexId}</p>
-      <img src={pokemon.image} alt={pokemon.name} />
+      <img src={pokemon.image} alt={pokemon.name} loading="lazy" />
       <div className="type-button">
         {pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
             <Link key={id} to={`/type/${type.name}`} className="button-type">
-              <img className="type" src={type.image} />
+              <img className="type" src={type.image} loading="lazy" />
               <p>{type.name}</p>
             </Link>
           )
