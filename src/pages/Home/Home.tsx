@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Bienvenu Dresseur</h1>
+      <h1>Bienvenue Dresseur</h1>
 
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
