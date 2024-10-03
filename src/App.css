@@ -21,9 +21,11 @@ body {
   }
 
   main {
+    --_padding-bottom: 2rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: var(--_padding-bottom);
+    min-height: calc(100vh - var(--_padding-bottom));
   }
 
   nav {
@@ -51,6 +53,10 @@ body {
 .dark {
   background-color: var(--color-black);
   color: var(--color-white);
+
+  a:not(:has(> img)) {
+    filter: invert(1);
+  }
 }
 
 .light {
