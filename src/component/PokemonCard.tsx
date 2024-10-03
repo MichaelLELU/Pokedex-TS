@@ -13,27 +13,6 @@ export type poketype = {
   };
 };
 
-const PkmnTypes: string[] = [
-  "#9FA19F",
-  "#3FA129",
-  "#E62829",
-  "#2980EF",
-  "#9141CB",
-  "#81B9EF",
-  "#91A119",
-  "#624D4E",
-  "#FAC000",
-  "#EF4179",
-  "#3DCEF3",
-  "#B7A9F7",
-  "#60A1B8",
-  "#EF70EF",
-  "#915121",
-  "#FF8000",
-  "#AFA981",
-  "#704170",
-];
-
 export default function PokemonCard(pokemon: poketype) {
   const Pokemon = pokemon.pokemon;
 
@@ -42,61 +21,61 @@ export default function PokemonCard(pokemon: poketype) {
     const getTypeColor = (type: string) => {
       switch (type) {
         case "Normal": {
-          return PkmnTypes[0];
+          return "#9FA19F";
         }
         case "Plante": {
-          return PkmnTypes[1];
+          return "#3FA129";
         }
         case "Feu": {
-          return PkmnTypes[2];
+          return "#E62829";
         }
         case "Eau": {
-          return PkmnTypes[3];
+          return "#2980EF";
         }
         case "Poison": {
-          return PkmnTypes[4];
+          return "#9141CB";
         }
         case "Vol": {
-          return PkmnTypes[5];
+          return "#81B9EF";
         }
         case "Insecte": {
-          return PkmnTypes[6];
+          return "#91A119";
         }
         case "Ténèbres": {
-          return PkmnTypes[7];
+          return "#624D4E";
         }
         case "Électrik": {
-          return PkmnTypes[8];
+          return "#FAC000";
         }
         case "Psy": {
-          return PkmnTypes[9];
+          return "#EF4179";
         }
         case "Glace": {
-          return PkmnTypes[10];
+          return "#3DCEF3";
         }
         case "Dragon": {
-          return PkmnTypes[11];
+          return "#B7A9F7";
         }
         case "Acier": {
-          return PkmnTypes[12];
+          return "#60A1B8";
         }
         case "Fée": {
-          return PkmnTypes[13];
+          return "#EF70EF";
         }
         case "Sol": {
-          return PkmnTypes[14];
+          return "#915121";
         }
         case "Combat": {
-          return PkmnTypes[15];
+          return "#FF8000";
         }
         case "Roche": {
-          return PkmnTypes[16];
+          return "#AFA981";
         }
         case "Spectre": {
-          return PkmnTypes[17];
+          return "#704170";
         }
         default: {
-          return PkmnTypes[0];
+          return "#9FA19F";
         }
       }
     };

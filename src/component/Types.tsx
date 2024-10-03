@@ -17,24 +17,24 @@ export default function Types() {
   }, []);
 
   return (
-    <>
+    <nav>
       <h2>
         Choisissez un type de Pokémon{" "}
         <button onClick={toggleOnClick}>{show === false ? "+" : "-"}</button>
       </h2>{" "}
       {show === true ? (
-        <div className="type-container">
+        <ul className="type-container">
           {dataType?.map((t) => (
             <Link to={`/type/${t.name}`}>
-              <div className="type-card">
+              <li className="type-card">
                 <h2>{t.name}</h2>
                 <img src={t.image} alt={t.name} loading="lazy" />
-              </div>
+              </li>
             </Link>
           ))}
-        </div>
+        </ul>
       ) : null}
-    </>
+    </nav>
   );
 }
 
