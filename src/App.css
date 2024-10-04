@@ -52,14 +52,18 @@ body {
 
 .dark {
   background-color: var(--color-black);
+  --background: var(--color-black);
+  --background-inverse: var(--color-white);
   color: var(--color-white);
 
-  a:not(:has(> img)) {
-    filter: invert(1);
+  nav a {
+    color: #fac000;
   }
 }
 
 .light {
   background-color: var(--color-white);
+  --background: var(--color-white);
+  --background-inverse: var(--color-black);
   color: var(--color-black);
 }
