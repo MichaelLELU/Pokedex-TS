@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import axios from "axios";
 import Home from "./pages/Home/Home.tsx";
 import App from "./App.tsx";
 import "./index.css";
@@ -15,25 +16,58 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch(`https://pokebuildapi.fr/api/v1/pokemon`),
+        loader: () => {
+          try {
+            return axios
+              .get("https://pokebuildapi.fr/api/v1/pokemon")
+              .then((res) => res.data);
+          } catch (error) {
+            console.error(error);
+            return [];
+          }
+        },
       },
       {
         path: "/type/:name",
         element: <TypePage />,
-        loader: ({ params }) =>
-          fetch(`https://pokebuildapi.fr/api/v1/pokemon/type/${params.name}`),
+        loader: ({ params }) => {
+          try {
+            return axios
+              .get(`https://pokebuildapi.fr/api/v1/pokemon/type/${params.name}`)
+              .then((res) => res.data);
+          } catch (error) {
+            console.error(error);
+            return [];
+          }
+        },
       },
       {
         path: "/pokemon/:name",
         element: <DetailsPage />,
-        loader: ({ params }) =>
-          fetch(`https://pokebuildapi.fr/api/v1/pokemon/${params.name}`),
+        loader: ({ params }) => {
+          try {
+            return axios
+              .get(`https://pokebuildapi.fr/api/v1/pokemon/${params.name}`)
+              .then((res) => res.data);
+          } catch (error) {
+            console.error(error);
+            return [];
+          }
+        },
       },
       {
         path: "/teambuilder",
         element: <TeamRandom />,
-        loader: () =>
-          fetch(`https://pokebuildapi.fr/api/v1/random/team/suggest`),
+        loader: () => {
+          try {
+            return axios
+              .get(`https://pokebuildapi.fr/api/v1/random/team/suggest`)
+              .then((res) => res.data);
+          } catch (error) {
+            console.error(error);
+            return [];
+          }
+        },
       },
     ],
   },
