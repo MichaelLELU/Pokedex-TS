@@ -44,6 +44,7 @@ main {
     height: var(--_size);
     object-fit: cover;
     border-radius: var(--_border-radius, 0.625rem);
+    filter: drop-shadow(2px 2px 2px var(--color-black, black));
   }
 
   p {
