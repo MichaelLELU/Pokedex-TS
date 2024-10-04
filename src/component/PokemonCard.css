@@ -25,6 +25,7 @@ main {
   transition: transform 0.3s ease;
   border: 10px solid var(--_border, #bfc200);
   border-radius: var(--_border-radius, 5%);
+  text-shadow: 2px 2px 2px var(--color-black, black);
 
   &:hover {
     transform: scale(1.05);
