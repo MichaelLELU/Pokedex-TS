@@ -55,6 +55,7 @@ body {
   --background: var(--color-black);
   --background-inverse: var(--color-white);
   color: var(--color-white);
+  --shadow-color: #eee;
 
   nav a {
     color: #fac000;
@@ -66,4 +67,5 @@ body {
   --background: var(--color-white);
   --background-inverse: var(--color-black);
   color: var(--color-black);
+  --shadow-color: var(--color-black);
 }
