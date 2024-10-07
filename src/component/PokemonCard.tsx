@@ -18,66 +18,29 @@ export default function PokemonCard(pokemon: poketype) {
 
   const cardContainer = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    const pkmnTypes: { [key: string]: string } = {
+      Normal: "#9FA19F",
+      Plante: "#3FA129",
+      Feu: "#E62829",
+      Eau: "#2980EF",
+      Poison: "#9141CB",
+      Vol: "#81B9EF",
+      Insecte: "#91A119",
+      Ténèbres: "#624D4E",
+      Électrik: "#FAC000",
+      Psy: "#EF4179",
+      Glace: "#3DCEF3",
+      Dragon: "#B7A9F7",
+      Acier: "#60A1B8",
+      Fée: "#EF70EF",
+      Sol: "#915121",
+      Combat: "#FF8000",
+      Roche: "AFA981",
+      Spectre: "704170",
+    };
+
     const getTypeColor = (type: string) => {
-      switch (type) {
-        case "Normal": {
-          return "#9FA19F";
-        }
-        case "Plante": {
-          return "#3FA129";
-        }
-        case "Feu": {
-          return "#E62829";
-        }
-        case "Eau": {
-          return "#2980EF";
-        }
-        case "Poison": {
-          return "#9141CB";
-        }
-        case "Vol": {
-          return "#81B9EF";
-        }
-        case "Insecte": {
-          return "#91A119";
-        }
-        case "Ténèbres": {
-          return "#624D4E";
-        }
-        case "Électrik": {
-          return "#FAC000";
-        }
-        case "Psy": {
-          return "#EF4179";
-        }
-        case "Glace": {
-          return "#3DCEF3";
-        }
-        case "Dragon": {
-          return "#B7A9F7";
-        }
-        case "Acier": {
-          return "#60A1B8";
-        }
-        case "Fée": {
-          return "#EF70EF";
-        }
-        case "Sol": {
-          return "#915121";
-        }
-        case "Combat": {
-          return "#FF8000";
-        }
-        case "Roche": {
-          return "#AFA981";
-        }
-        case "Spectre": {
-          return "#704170";
-        }
-        default: {
-          return "#9FA19F";
-        }
-      }
+      return pkmnTypes[type];
     };
 
     if (Pokemon.apiTypes && Pokemon.apiTypes[0]) {
