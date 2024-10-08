@@ -1,15 +1,31 @@
+main {
+  &.light {
+    .pokemon-card-container {
+      box-shadow: 6px 6px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &.dark {
+    .pokemon-card-container {
+      box-shadow: 6px 6px 3px 2px rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
 .pokemon-card-container {
+  --_size: 300px;
+  --_border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 400px;
+  justify-content: center;
+  width: var(--_size);
+  height: calc(var(--_size) * 1.25);
   background-color: var(--_background, rgb(237, 246, 120));
-  border-radius: 5%;
-  border: 10px solid var(--_border, #bfc200);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  padding-top: 3em;
+  border: 10px solid var(--_border, #bfc200);
+  border-radius: var(--_border-radius, 5%);
+  text-shadow: 2px 2px 2px var(--color-black, black);
 
   &:hover {
     transform: scale(1.05);
@@ -27,7 +43,8 @@
     width: var(--_size);
     height: var(--_size);
     object-fit: cover;
-    border-radius: 0.625rem;
+    border-radius: var(--_border-radius, 0.625rem);
+    filter: drop-shadow(2px 2px 2px var(--color-black, black));
   }
 
   p {

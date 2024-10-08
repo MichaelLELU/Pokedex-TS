@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Types() {
-  const [dataType, setDataType] = useState();
+  interface dataType {
+    name: string;
+    image: string;
+  }
+  const [dataType, setDataType] = useState<dataType[]>([]);
   const [show, setShow] = useState(false);
 
   const toggleOnClick = () => {
@@ -17,24 +21,31 @@ export default function Types() {
   }, []);
 
   return (
-    <nav>
+    <>
       <h2>
-        Choisissez un type de Pokémon{" "}
+        Filtrer par type de Pokémon
         <button onClick={toggleOnClick}>{show === false ? "+" : "-"}</button>
-      </h2>{" "}
-      {show === true ? (
+      </h2>
+      {show && (
         <ul className="type-container">
-          {dataType?.map((t) => (
-            <Link to={`/type/${t.name}`}>
-              <li className="type-card">
-                <h2>{t.name}</h2>
-                <img src={t.image} alt={t.name} loading="lazy" />
-              </li>
-            </Link>
-          ))}
+          <Link to="/">
+            <li className="type-card">
+              <h2>Tous</h2>
+              <img src="pokeball.svg" alt="Tous les types" loading="lazy" />
+            </li>
+          </Link>
+          {dataType &&
+            dataType.map((t) => (
+              <Link to={`/type/${t.name}`} key={t.name}>
+                <li className="type-card">
+                  <h2>{t.name}</h2>
+                  <img src={t.image} alt={t.name} loading="lazy" />
+                </li>
+              </Link>
+            ))}
         </ul>
-      ) : null}
-    </nav>
+      )}
+    </>
   );
 }
 
