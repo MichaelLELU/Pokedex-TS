@@ -8,9 +8,9 @@ interface Pokemon {
   sprite: string;
   image: string;
   apiTypes: { name: string; image: string }[];
-  apiEvolutions: { name: string; id: number }[];
-  apiPreEvolution: { name: string };
-  stats: StatT; // Assurez-vous que c'est un tableau d'objets Stat
+  apiEvolutions: { name: string; pokedexId: number }[];
+  apiPreEvolution: { name: string; pokedexIdd: number };
+  stats: StatT;
 }
 
 export default function DetailsPage() {
@@ -48,7 +48,7 @@ export default function DetailsPage() {
       <article className="evolutions-container">
         <div>
           {pokemon.apiPreEvolution.name ? <h2>Pré-évolution :</h2> : null}
-          <Link to={`/pokemon/${pokemon.apiPreEvolution.name}`}>
+          <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexIdd}`}>
             <h3>{pokemon.apiPreEvolution.name}</h3>
           </Link>
         </div>
@@ -56,8 +56,8 @@ export default function DetailsPage() {
           {pokemon.apiEvolutions.length === 0 ? null : (
             <h2>Évolution{pokemon.apiEvolutions.length > 1 ? "s" : ""} :</h2>
           )}
-          {pokemon.apiEvolutions.map((evo: { name: string; id: number }) => (
-            <Link key={evo.id} to={`/pokemon/${evo.name}`}>
+          {pokemon.apiEvolutions.map((evo) => (
+            <Link key={evo.pokedexId} to={`/pokemon/${evo.pokedexId}`}>
               <h3>{evo.name}</h3>
             </Link>
           ))}

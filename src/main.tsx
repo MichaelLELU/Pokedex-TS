@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/pokemon/:name",
+        path: "/pokemon/:id",
         element: <DetailsPage />,
         loader: ({ params }) => {
           try {
             return axios
-              .get(`https://pokebuildapi.fr/api/v1/pokemon/${params.name}`)
+              .get(`https://pokebuildapi.fr/api/v1/pokemon/${params.id}`)
               .then((res) => res.data);
           } catch (error) {
             console.error(error);
