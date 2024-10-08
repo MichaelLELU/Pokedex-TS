@@ -42,13 +42,15 @@ export default function DetailsPage() {
 
       <article className="evolutions-container">
         <div>
-          {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
+          {pokemon.apiPreEvolution.name ? <h2>Pré-évolution :</h2> : null}
           <Link to={`/pokemon/${pokemon.apiPreEvolution.name}`}>
             <h3>{pokemon.apiPreEvolution.name}</h3>
           </Link>
         </div>
         <div>
-          {pokemon.apiEvolutions.length === 0 ? null : <h2>Evolution(s) :</h2>}
+          {pokemon.apiEvolutions.length === 0 ? null : (
+            <h2>Évolution{pokemon.apiEvolutions.length > 1 ? "s" : ""} :</h2>
+          )}
           {pokemon.apiEvolutions.map((evo: { name: string; id: number }) => (
             <Link key={evo.id} to={`/pokemon/${evo.name}`}>
               <h3>{evo.name}</h3>
