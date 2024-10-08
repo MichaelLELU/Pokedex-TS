@@ -47,6 +47,7 @@ body {
     font-family: "Futura T OT", sans-serif;
     margin-bottom: 2rem;
     padding: 1rem;
+    max-height: 3rem;
 
     ul {
       list-style-type: none;
@@ -54,17 +55,8 @@ body {
       justify-content: space-around;
       gap: 2rem;
 
-      li {
-        transition: transform 0.2s ease-in-out;
-
-        &:hover {
-          transform: translateY(8px) scale(1.1);
-          transform-box: view-box;
-        }
-
-        svg {
-          vertical-align: bottom;
-        }
+      svg {
+        vertical-align: bottom;
       }
     }
 

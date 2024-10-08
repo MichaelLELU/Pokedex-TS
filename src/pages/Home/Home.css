@@ -26,6 +26,7 @@
       border: 1px solid;
     }
   }
+
   @media screen and (min-width: 768px) {
     top: 64px;
     width: 50rem;
@@ -59,6 +60,11 @@ h2 button {
 
 .type-nav {
   color: #fac000;
+  user-select: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .type-modal {
