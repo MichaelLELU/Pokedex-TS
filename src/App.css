@@ -78,6 +78,15 @@ body {
     margin-bottom: 1rem;
   }
 
+  table * {
+    border-color: var(--background-inverse);
+  }
+
+  th {
+    background-color: var(--background-inverse);
+    color: var(--background);
+  }
+
   th,
   .total > td {
     font-size: 16pt;
@@ -103,6 +112,10 @@ body {
   --shadow-color: var(--color-black);
   --link-color: #0000ee;
   --link-color-hover: #551a8b;
+
+  tr:hover td {
+    color: var(--background);
+  }
 }
 
 .light-dark {
