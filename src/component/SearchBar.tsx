@@ -73,7 +73,7 @@ export default function SearchBar() {
           <ul className="search-list">
             {filteredP.length === 0 ? <p>Aucun résultat</p> : null}
             {filteredP.map((p: poketype) => (
-              <Link to={`/pokemon/${p.name}`} key={p.id}>
+              <Link to={`/pokemon/${p.id}`} key={p.id}>
                 <li className="search-result">
                   {p.name}
                   <img
@@ -105,7 +105,7 @@ export default function SearchBar() {
               <p>Aucun résultat</p>
             ) : (
               filteredById.map((p: poketype) => (
-                <Link to={`/pokemon/${p.name}`} key={p.id}>
+                <Link to={`/pokemon/${p.id}`} key={p.id}>
                   <li className="search-result">
                     {p.name}
                     <img
