@@ -56,7 +56,7 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
 
   return (
     <div className="pokemon-card-container" ref={cardContainer}>
-      <Link to={`/pokemon/${Pokemon.name}`}>
+      <Link to={`/pokemon/${Pokemon.id}`}>
         <h2>{Pokemon.name}</h2>
         <p>ID: {Pokemon.pokedexId}</p>
         <img src={Pokemon.image} alt={Pokemon.name} loading="lazy" />
