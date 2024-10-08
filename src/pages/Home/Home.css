@@ -117,3 +117,17 @@ h2 button {
   border: 1px solid var(--background-inverse);
   border-radius: 50%;
 }
+
+#search-input {
+  width: 70%;
+  padding: 0.5em;
+  border-radius: 10px;
+  border: 2px solid var(--background-inverse);
+  background-color: var(--background);
+  color: var(--background-inverse);
+}
+
+#search-input:focus {
+  border: 3px solid #fac000;
+  outline: none;
+}
