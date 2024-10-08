@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import pokeball from "/public/pokeball.svg";
 
 export default function Types() {
   interface dataType {
@@ -31,7 +32,7 @@ export default function Types() {
           <Link to="/">
             <li className="type-card">
               <h2>Tous</h2>
-              <img src="pokeball.svg" alt="Tous les types" loading="lazy" />
+              <img src={pokeball} alt="Tous les types" loading="lazy" />
             </li>
           </Link>
           {dataType &&

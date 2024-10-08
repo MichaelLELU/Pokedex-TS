@@ -68,4 +68,11 @@ body {
   --background-inverse: var(--color-black);
   color: var(--color-black);
   --shadow-color: var(--color-black);
+
+  nav a {
+    color: blue;
+    &:hover {
+      color: rgb(67, 64, 64);
+    }
+  }
 }
