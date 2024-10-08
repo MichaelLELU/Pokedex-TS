@@ -1,5 +1,5 @@
 export type StatT = {
-  hp: number;
+  HP: number;
   attack: number;
   defense: number;
   special_attack: number;
@@ -63,7 +63,7 @@ export default function Stats({ stats }: StatsProps) {
         <tr className="total">
           <td>Total</td>
           <td>
-            {stats.hp +
+            {stats.HP +
               stats.attack +
               stats.defense +
               stats.special_attack +
