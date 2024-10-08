@@ -45,6 +45,7 @@ export default function SearchBar() {
         value={searchItem}
         onChange={handleInputChange}
         placeholder="Rechercher un Pokemon..."
+        id="search-input
       />
       {searchItem.length <= 2 ? (
         <p>

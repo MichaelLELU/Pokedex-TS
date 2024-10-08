@@ -8,11 +8,16 @@ export default function Types() {
     name: string;
     image: string;
   }
+
   const [dataType, setDataType] = useState<dataType[]>([]);
   const [show, setShow] = useState(false);
 
   const toggleOnClick = () => {
     setShow(!show);
+  };
+
+  const handleLinkClick = () => {
+    setShow(false);
   };
 
   useEffect(() => {
@@ -42,15 +47,18 @@ export default function Types() {
                 />
               </li>
             </Link>
-            {dataType &&
-              dataType.map((t) => (
-                <Link to={`/type/${t.name}`} key={t.name}>
-                  <li className="type-card">
-                    <h2>{t.name}</h2>
-                    <img src={t.image} alt={t.name} loading="lazy" />
-                  </li>
-                </Link>
-              ))}
+            {dataType?.map((t) => (
+              <Link
+                to={`/type/${t.name}`}
+                key={t.name}
+                onClick={handleLinkClick}
+              >
+                <li className="type-card">
+                  <h2>{t.name}</h2>
+                  <img src={t.image} alt={t.name} loading="lazy" />
+                </li>
+              </Link>
+            ))}
           </ul>
         </nav>
       )}
