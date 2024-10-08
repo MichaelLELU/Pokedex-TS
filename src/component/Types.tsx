@@ -41,7 +41,7 @@ export default function Types() {
               <li className="type-card">
                 <h2>Tous</h2>
                 <img
-                  src="/public/pokeball.svg"
+                  src="../../public/pokeball.svg"
                   alt="Tous les types"
                   loading="lazy"
                 />
