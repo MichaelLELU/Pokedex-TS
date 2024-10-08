@@ -2,19 +2,20 @@ import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonCard.css";
 
+interface PokemonCardProps {
+  creature: poketype; // Typage du prop pokemon
+}
+
 export type poketype = {
   id: number;
-  pokemon: {
-    id: number;
-    name: string;
-    pokedexId: number;
-    image: string;
-    apiTypes: { name: string; image: string }[];
-  };
+  name: string;
+  pokedexId: number;
+  image: string;
+  apiTypes: { name: string; image: string }[];
 };
 
-export default function PokemonCard(pokemon: poketype) {
-  const Pokemon = pokemon.pokemon;
+export default function PokemonCard({ creature }: PokemonCardProps) {
+  const Pokemon = creature;
 
   const cardContainer = useRef<HTMLDivElement>(null);
   useEffect(() => {

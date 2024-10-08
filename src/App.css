@@ -42,6 +42,7 @@ body {
 
     button {
       font-family: "Futura T OT", sans-serif;
+      cursor: pointer;
     }
   }
 
@@ -60,6 +61,11 @@ body {
 
   nav a {
     color: #fac000;
+    font-weight: bold;
+  }
+  .type-nav {
+    color: #fac000;
+    font-weight: bold;
   }
 }
 
@@ -72,9 +78,14 @@ body {
 
   nav a {
     color: blue;
+    font-weight: bold;
     &:hover {
       color: rgb(67, 64, 64);
     }
+  }
+  .type-nav {
+    color: blue;
+    font-weight: bold;
   }
 }
 

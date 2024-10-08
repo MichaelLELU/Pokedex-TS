@@ -1,14 +1,4 @@
-type StatsT = {
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    specialAttack: number;
-    specialDefense: number;
-    speed: number;
-  };
-};
-type StatT = {
+export type StatT = {
   hp: number;
   attack: number;
   defense: number;
@@ -17,7 +7,11 @@ type StatT = {
   speed: number;
 };
 
-export default function Stats({ stats }: StatsT) {
+type StatsProps = {
+  stats: StatT;
+};
+
+export default function Stats({ stats }: StatsProps) {
   return (
     <table>
       <thead>

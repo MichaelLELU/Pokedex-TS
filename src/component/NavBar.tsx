@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { Sun, Moon, Dices, House } from "lucide-react";
 import Types from "./Types";
 
-//todo trouver les bon type pour les props
+interface NavBarProps {
+  mode: boolean;
+  setMode: (mode: boolean) => void;
+}
 
-export default function NavBar({ mode, setMode }) {
+export default function NavBar({ mode, setMode }: NavBarProps) {
   const toggleOnClick = () => {
     setMode(!mode);
   };

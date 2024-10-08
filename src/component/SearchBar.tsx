@@ -10,8 +10,8 @@ type poketype = {
 
 export default function SearchBar() {
   const [searchItem, setSearchItem] = useState("");
-  const [data, setData] = useState() as poketype[];
-  const [filteredP, setFilteredP] = useState([]);
+  const [data, setData] = useState<poketype[]>([]);
+  const [filteredP, setFilteredP] = useState<poketype[]>([]);
 
   const fetchPokemons = async () => {
     try {
@@ -27,7 +27,7 @@ export default function SearchBar() {
     fetchPokemons();
   }, [searchItem]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
 

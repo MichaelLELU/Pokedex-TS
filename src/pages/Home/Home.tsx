@@ -12,7 +12,7 @@ export default function Home() {
       <SearchBar />
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
-          <PokemonCard key={p.id} pokemon={p} />
+          <PokemonCard key={p.id} creature={p} />
         ))}
       </div>
     </>
