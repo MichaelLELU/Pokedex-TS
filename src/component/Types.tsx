@@ -57,5 +57,3 @@ export default function Types() {
     </>
   );
 }
-
-//todo coriger le MAP !! qui nexixte pas sur un type never  xD
