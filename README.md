@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 ## v0.8
 
-pokedex : petit projet annexe pour m'entrainer au Typage (CDA wild code school)
+A Pokedex written in TypeScript using an external API
 
 lien de prod : https://pokedex-ts-try.vercel.app/
 
