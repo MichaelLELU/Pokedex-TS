@@ -40,11 +40,7 @@ export default function Types() {
             <Link to="/">
               <li className="type-card">
                 <h2>Tous</h2>
-                <img
-                  src="../../public/pokeball.svg"
-                  alt="Tous les types"
-                  loading="lazy"
-                />
+                <img src="/pokeball.svg" alt="Tous les types" loading="lazy" />
               </li>
             </Link>
             {dataType?.map((t) => (
