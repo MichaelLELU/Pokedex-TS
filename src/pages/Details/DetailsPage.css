@@ -48,3 +48,10 @@ main.dark {
   display: flex;
   gap: 3em;
 }
+
+@media screen and (max-width: 768px) {
+  .portrait {
+    width: 320px;
+    height: 320px;
+  }
+}

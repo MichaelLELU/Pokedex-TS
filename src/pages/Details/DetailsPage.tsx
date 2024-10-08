@@ -28,7 +28,12 @@ export default function DetailsPage() {
         />
       </h1>
       <p>ID: {pokemon.pokedexId}</p>
-      <img src={pokemon.image} alt={pokemon.name} loading="lazy" />
+      <img
+        src={pokemon.image}
+        alt={pokemon.name}
+        loading="lazy"
+        className="portrait"
+      />
       <div className="type-button">
         {pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
