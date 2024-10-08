@@ -8,8 +8,9 @@ Petit projet annexe pour m'entraîner au typage avec TypeScript (CDA Wild Code S
 
 ## V1 à venir
 
+
 - Système d'authentification avec création d'équipe(s)
-- ...
+
 
 > Je suis preneur de nouvelles idées (telle q'une api plus complète)
 
