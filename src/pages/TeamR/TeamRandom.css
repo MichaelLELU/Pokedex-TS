@@ -28,9 +28,9 @@ th {
 }
 
 tr:hover {
-  background-color: #191919;
+  background-color: #464242;
 }
 
 td {
-  color: wheat;
+  color: var(--background-inverse);
 }

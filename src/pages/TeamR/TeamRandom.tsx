@@ -4,9 +4,14 @@ import PokemonCard, { poketype } from "../../component/PokemonCard";
 import axios from "axios";
 import "./TeamRandom.css";
 
+type resistType = {
+  name: string;
+  message: string;
+};
+
 export default function TeamRandom() {
   const TeamRandom = useLoaderData() as poketype[];
-  const [resist, setResist] = useState();
+  const [resist, setResist] = useState() as resistType[];
 
   const setOnClick = async () => {
     await axios
@@ -18,7 +23,6 @@ export default function TeamRandom() {
         setResist(response.data);
       });
   };
-  console.log(resist);
 
   return (
     <>
@@ -29,7 +33,7 @@ export default function TeamRandom() {
       </p>
 
       <div className="pokemon-container">
-        {TeamRandom[0].map((p) => (
+        {TeamRandom[0].map((p: poketype) => (
           <PokemonCard key={p.id} pokemon={p} />
         ))}
       </div>
@@ -43,7 +47,7 @@ export default function TeamRandom() {
             <th>Type</th>
             <th>Resistance</th>
           </tr>
-          {resist?.map((r) => (
+          {resist?.map((r: resistType) => (
             <tr>
               <td>{r.name}</td>
               <td>{r.message}</td>

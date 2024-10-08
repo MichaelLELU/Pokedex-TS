@@ -9,6 +9,8 @@ import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
 import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
 
+console.log(import.meta.env.API_URL);
+
 const router = createBrowserRouter([
   {
     element: <App />,

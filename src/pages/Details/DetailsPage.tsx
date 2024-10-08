@@ -1,5 +1,6 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./DetailsPage.css";
+import Stats from "../../component/Stats";
 
 export default function DetailsPage() {
   const pokemon = useLoaderData() as {
@@ -35,7 +36,14 @@ export default function DetailsPage() {
           )
         )}
       </div>
+      <Stats stats={pokemon.stats} />
       <article className="evolutions-container">
+        <div>
+          {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
+          <Link to={`/pokemon/${pokemon.apiPreEvolution.name}`}>
+            <h3>{pokemon.apiPreEvolution.name}</h3>
+          </Link>
+        </div>
         <div>
           {pokemon.apiEvolutions.length === 0 ? null : <h2>Evolution(s) :</h2>}
           {pokemon.apiEvolutions.map((evo: { name: string; id: number }) => (
@@ -43,12 +51,6 @@ export default function DetailsPage() {
               <h3>{evo.name}</h3>
             </Link>
           ))}
-        </div>
-        <div>
-          {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
-          <Link to={`/pokemon/${pokemon.apiPreEvolution.name}`}>
-            <h3>{pokemon.apiPreEvolution.name}</h3>
-          </Link>
         </div>
       </article>
     </div>

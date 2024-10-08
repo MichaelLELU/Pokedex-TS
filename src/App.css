@@ -37,6 +37,7 @@ body {
       list-style-type: none;
       display: flex;
       justify-content: space-around;
+      gap: 2rem;
     }
 
     button {
@@ -75,4 +76,17 @@ body {
       color: rgb(67, 64, 64);
     }
   }
+}
+
+.light-dark {
+  border-radius: 50%;
+  padding: 10px;
+  border: 2px solid var(--background-inverse);
+  background-color: var(--background);
+  color: var(--background-inverse);
+}
+
+.light-dark:hover {
+  transition: 0.2s;
+  border: 5px solid var(--background-inverse);
 }

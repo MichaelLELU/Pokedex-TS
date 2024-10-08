@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { PanelTopOpen, PanelTopClose } from "lucide-react";
 import pokeball from "/public/pokeball.svg";
 
 export default function Types() {
@@ -23,28 +24,32 @@ export default function Types() {
 
   return (
     <>
-      <h2>
-        Filtrer par type de Pokémon
-        <button onClick={toggleOnClick}>{show === false ? "+" : "-"}</button>
-      </h2>
+      <p className="type-nav">
+        Types
+        <button onClick={toggleOnClick} className="type-modal">
+          {show === false ? <PanelTopOpen /> : <PanelTopClose />}
+        </button>
+      </p>
       {show && (
-        <ul className="type-container">
-          <Link to="/">
-            <li className="type-card">
-              <h2>Tous</h2>
-              <img src={pokeball} alt="Tous les types" loading="lazy" />
-            </li>
-          </Link>
-          {dataType &&
-            dataType.map((t) => (
-              <Link to={`/type/${t.name}`} key={t.name}>
-                <li className="type-card">
-                  <h2>{t.name}</h2>
-                  <img src={t.image} alt={t.name} loading="lazy" />
-                </li>
-              </Link>
-            ))}
-        </ul>
+        <nav>
+          <ul className="type-container">
+            <Link to="/">
+              <li className="type-card">
+                <h2>Tous</h2>
+                <img src={pokeball} alt="Tous les types" loading="lazy" />
+              </li>
+            </Link>
+            {dataType &&
+              dataType.map((t) => (
+                <Link to={`/type/${t.name}`} key={t.name}>
+                  <li className="type-card">
+                    <h2>{t.name}</h2>
+                    <img src={t.image} alt={t.name} loading="lazy" />
+                  </li>
+                </Link>
+              ))}
+          </ul>
+        </nav>
       )}
     </>
   );
