@@ -7,11 +7,12 @@ import "./TeamRandom.css";
 type resistType = {
   name: string;
   message: string;
-};
+  summary: string;
+}[];
 
 export default function TeamRandom() {
-  const TeamRandom = useLoaderData() as poketype[];
-  const [resist, setResist] = useState() as resistType[];
+  const TeamRandom = useLoaderData() as poketype[][];
+  const [resist, setResist] = useState<resistType>();
 
   const setOnClick = async () => {
     await axios
@@ -33,8 +34,8 @@ export default function TeamRandom() {
       </p>
 
       <div className="pokemon-container">
-        {TeamRandom[0].map((p: poketype) => (
-          <PokemonCard key={p.id} pokemon={p} />
+        {TeamRandom[0].map((p) => (
+          <PokemonCard key={p.id} creature={p} />
         ))}
       </div>
       <section className="section-resist">
@@ -43,20 +44,22 @@ export default function TeamRandom() {
           <strong>{resist && resist[0].summary}</strong>
         </p>
         <table>
-          <tr>
-            <th>Type</th>
-            <th>Resistance</th>
-          </tr>
-          {resist?.map((r: resistType) => (
+          <thead>
             <tr>
-              <td>{r.name}</td>
-              <td>{r.message}</td>
+              <th>Type</th>
+              <th>Resistance</th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {resist?.map((r) => (
+              <tr id={r.name}>
+                <td>{r.name}</td>
+                <td>{r.message}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </section>
     </>
   );
 }
-
-// todo trouver les bon type pour les props pour les map

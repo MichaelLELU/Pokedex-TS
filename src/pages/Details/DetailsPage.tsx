@@ -1,18 +1,20 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./DetailsPage.css";
-import Stats from "../../component/Stats";
+import Stats, { StatT } from "../../component/Stats";
+
+interface Pokemon {
+  name: string;
+  pokedexId: number;
+  sprite: string;
+  image: string;
+  apiTypes: { name: string; image: string }[];
+  apiEvolutions: { name: string; id: number }[];
+  apiPreEvolution: { name: string };
+  stats: StatT; // Assurez-vous que c'est un tableau d'objets Stat
+}
 
 export default function DetailsPage() {
-  const pokemon = useLoaderData() as {
-    name: string;
-    pokedexId: number;
-    sprite: string;
-    image: string;
-    apiTypes: { name: string; image: string }[];
-    apiEvolutions: { name: string; id: number }[];
-    apiPreEvolution: { name: string };
-    stats: { name: string; value: number }[];
-  };
+  const pokemon = useLoaderData() as Pokemon;
 
   return (
     <div className="details-container">

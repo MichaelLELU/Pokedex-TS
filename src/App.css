@@ -70,6 +70,7 @@ body {
 
     button {
       font-family: "Futura T OT", sans-serif;
+      cursor: pointer;
     }
   }
 
@@ -103,7 +104,12 @@ body {
   --background-inverse: var(--color-white);
   --shadow-color: #eee;
   --link-color: #fac000;
-  --link-color-hover: #f5a400;
+
+  .type-nav {
+    color: #fac000;
+    font-weight: bold;
+    --link-color-hover: #f5a400;
+  }
 }
 
 .light {
@@ -115,6 +121,10 @@ body {
 
   tr:hover td {
     color: var(--background);
+  }
+  .type-nav {
+    color: blue;
+    font-weight: bold;
   }
 }
 

@@ -1,15 +1,5 @@
-type StatsT = {
-  stats: {
-    HP: number;
-    attack: number;
-    defense: number;
-    special_attack: number;
-    special_defense: number;
-    speed: number;
-  };
-};
-type StatT = {
-  HP: number;
+export type StatT = {
+  hp: number;
   attack: number;
   defense: number;
   special_attack: number;
@@ -17,7 +7,11 @@ type StatT = {
   speed: number;
 };
 
-export default function Stats({ stats }: StatsT) {
+type StatsProps = {
+  stats: StatT;
+};
+
+export default function Stats({ stats }: StatsProps) {
   function replaceStatName(key: string) {
     switch (key) {
       case "HP":
@@ -69,7 +63,7 @@ export default function Stats({ stats }: StatsT) {
         <tr className="total">
           <td>Total</td>
           <td>
-            {stats.HP +
+            {stats.hp +
               stats.attack +
               stats.defense +
               stats.special_attack +

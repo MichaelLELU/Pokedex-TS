@@ -10,8 +10,8 @@ type poketype = {
 
 export default function SearchBar() {
   const [searchItem, setSearchItem] = useState("");
-  const [data, setData] = useState([]);
-  const [filteredP, setFilteredP] = useState([]);
+  const [data, setData] = useState<poketype[]>([]);
+  const [filteredP, setFilteredP] = useState<poketype[]>([]);
 
   const fetchPokemons = async () => {
     try {
