@@ -36,8 +36,8 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
       Fée: "#EF70EF",
       Sol: "#915121",
       Combat: "#FF8000",
-      Roche: "AFA981",
-      Spectre: "704170",
+      Roche: "#AFA981",
+      Spectre: "#704170",
     };
 
     const getTypeColor = (type: string) => {
