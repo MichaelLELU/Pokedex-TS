@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { PanelTopOpen, PanelTopClose } from "lucide-react";
-import pokeball from "/public/pokeball.svg";
 
 export default function Types() {
   interface dataType {
@@ -36,7 +35,11 @@ export default function Types() {
             <Link to="/">
               <li className="type-card">
                 <h2>Tous</h2>
-                <img src={pokeball} alt="Tous les types" loading="lazy" />
+                <img
+                  src="/src/assets/pokeball.svg"
+                  alt="Tous les types"
+                  loading="lazy"
+                />
               </li>
             </Link>
             {dataType &&
