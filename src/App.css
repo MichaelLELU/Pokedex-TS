@@ -21,9 +21,11 @@ body {
   }
 
   main {
+    --_padding-bottom: 2rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: var(--_padding-bottom);
+    min-height: calc(100vh - var(--_padding-bottom));
   }
 
   nav {
@@ -35,10 +37,12 @@ body {
       list-style-type: none;
       display: flex;
       justify-content: space-around;
+      gap: 2rem;
     }
 
     button {
       font-family: "Futura T OT", sans-serif;
+      cursor: pointer;
     }
   }
 
@@ -50,10 +54,50 @@ body {
 
 .dark {
   background-color: var(--color-black);
+  --background: var(--color-black);
+  --background-inverse: var(--color-white);
   color: var(--color-white);
+  --shadow-color: #eee;
+
+  nav a {
+    color: #fac000;
+    font-weight: bold;
+  }
+  .type-nav {
+    color: #fac000;
+    font-weight: bold;
+  }
 }
 
 .light {
   background-color: var(--color-white);
+  --background: var(--color-white);
+  --background-inverse: var(--color-black);
   color: var(--color-black);
+  --shadow-color: var(--color-black);
+
+  nav a {
+    color: blue;
+    font-weight: bold;
+    &:hover {
+      color: rgb(67, 64, 64);
+    }
+  }
+  .type-nav {
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+.light-dark {
+  border-radius: 50%;
+  padding: 10px;
+  border: 2px solid var(--background-inverse);
+  background-color: var(--background);
+  color: var(--background-inverse);
+}
+
+.light-dark:hover {
+  transition: 0.2s;
+  border: 5px solid var(--background-inverse);
 }

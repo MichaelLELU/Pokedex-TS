@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { Sun, Moon, Dices, House } from "lucide-react";
 import Types from "./Types";
 
-//todo trouver les bon type pour les props
+interface NavBarProps {
+  mode: boolean;
+  setMode: (mode: boolean) => void;
+}
 
-export default function NavBar({ mode, setMode }) {
+export default function NavBar({ mode, setMode }: NavBarProps) {
   const toggleOnClick = () => {
     setMode(!mode);
   };
@@ -12,17 +16,21 @@ export default function NavBar({ mode, setMode }) {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            Home <House />
+          </Link>
         </li>
         <li>
-          <Link to="/teambuilder">Équipe aléatoire</Link>
+          <Link to="/teambuilder">
+            Équipe aléatoire <Dices />
+          </Link>
         </li>
         <li>
           <Types />
         </li>
         <li>
-          <button onClick={toggleOnClick}>
-            {mode ? "Dark Mode" : "Light Mode"}
+          <button onClick={toggleOnClick} className="light-dark">
+            {mode ? <Moon /> : <Sun />}
           </button>
         </li>
       </ul>

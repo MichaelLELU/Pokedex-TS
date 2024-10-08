@@ -1,17 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import PokemonCard, { poketype } from "../../component/PokemonCard";
 import "./Home.css";
+import SearchBar from "../../component/SearchBar";
 
 export default function Home() {
   const dataPokemon = useLoaderData() as poketype[];
 
   return (
     <>
-      <h1>Bienvenu Dresseur</h1>
-
+      <h1>Bienvenue Dresseur</h1>
+      <SearchBar />
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
-          <PokemonCard key={p.id} pokemon={p} />
+          <PokemonCard key={p.id} creature={p} />
         ))}
       </div>
     </>

@@ -1,14 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import PokemonCard from "../../component/PokemonCard";
+import PokemonCard, { poketype } from "../../component/PokemonCard";
 import "./TypePage.css";
-
-type poketype = {
-  id: number;
-  name: string;
-  pokedexId: number;
-  image: string;
-  apiTypes: { name: string; image: string }[];
-};
 
 export default function TypePage() {
   const type = useParams();
@@ -19,7 +11,7 @@ export default function TypePage() {
       <h1>{type.name}</h1>
       <div className="pokemon-container">
         {pokemons.map((p) => (
-          <PokemonCard key={p.id} pokemon={p} />
+          <PokemonCard key={p.id} creature={p} />
         ))}
       </div>
     </>

@@ -4,7 +4,7 @@ import NavBar from "./component/NavBar";
 import "./App.css";
 
 function App() {
-  const [mode, setMode] = useState(false);
+  const [mode, setMode] = useState(false) as [boolean, (mode: boolean) => void];
 
   return (
     <main className={mode === true ? "light" : "dark"}>

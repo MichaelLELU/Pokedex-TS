@@ -1,24 +1,119 @@
 .type-container {
+  --_shadow: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 3em;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  background-color: var(--background);
+  z-index: 2;
+  border: 2px solid var(--background-inverse);
+  border-radius: 10px;
+  padding: 0.5rem;
+  filter: drop-shadow(
+    var(--_shadow) var(--_shadow) calc(0.5 * var(--_shadow)) rgba(0, 0, 0, 0.6)
+  );
+
+  a {
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    &:hover {
+      border: 1px solid;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    top: 64px;
+    width: 50rem;
+  }
+}
+
+h2 button {
+  min-width: 20px;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 .type-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid #000;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
+
   h2 {
     margin-top: 10px;
     margin-bottom: 0px;
   }
+
   img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
   }
+}
+
+.type-nav {
+  color: #fac000;
+}
+
+.type-modal {
+  margin-left: 1em;
+  border: none;
+  background-color: var(--background);
+  color: var(--background-inverse);
+}
+.type-modal:hover {
+  zoom: 1.1;
+}
+
+/* SEARCH COMPONENT */
+
+.search-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.search-list {
+  border: 2px solid var(--background-inverse);
+  border-radius: 15px;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  border: 1px solid var(--background-inverse);
+  border-radius: 10px;
+  background-color: var(--background);
+  color: #fac000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-result:hover {
+  font-weight: bold;
+  transition: 0.2s;
+  zoom: 1.1;
+  background-color: var(--background-inverse);
+  color: var(--background);
+}
+
+.sprite-search {
+  width: 50px;
+  background-color: #eee;
+  border: 1px solid var(--background-inverse);
+  border-radius: 50%;
 }
