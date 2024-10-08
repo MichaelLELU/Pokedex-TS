@@ -11,6 +11,7 @@ export default function DetailsPage() {
     apiTypes: { name: string; image: string }[];
     apiEvolutions: { name: string; id: number }[];
     apiPreEvolution: { name: string };
+    stats: { name: string; value: number }[];
   };
 
   return (
@@ -36,7 +37,7 @@ export default function DetailsPage() {
           )
         )}
       </div>
-      <Stats stats={pokemon.stats} />
+
       <article className="evolutions-container">
         <div>
           {pokemon.apiPreEvolution.name ? <h2>Pre-evolution :</h2> : null}
@@ -53,6 +54,7 @@ export default function DetailsPage() {
           ))}
         </div>
       </article>
+      <Stats stats={pokemon.stats} />
     </div>
   );
 }
