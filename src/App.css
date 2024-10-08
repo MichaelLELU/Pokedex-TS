@@ -26,18 +26,38 @@ body {
     padding-right: 1.5rem;
     padding-bottom: var(--_padding-bottom);
     min-height: calc(100vh - var(--_padding-bottom));
+    background-color: var(--background);
+    color: var(--background-inverse);
+  }
+
+  nav a,
+  .search-result {
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
+
+  input {
+    font-family: "SF Pixelate";
   }
 
   nav {
     font-family: "Futura T OT", sans-serif;
     margin-bottom: 2rem;
     padding: 1rem;
+    max-height: 3rem;
 
     ul {
       list-style-type: none;
       display: flex;
       justify-content: space-around;
       gap: 2rem;
+
+      svg {
+        vertical-align: bottom;
+      }
     }
 
     button {
@@ -50,38 +70,49 @@ body {
     text-align: center;
     margin-bottom: 1rem;
   }
+
+  table * {
+    border-color: var(--background-inverse);
+  }
+
+  th {
+    background-color: var(--background-inverse);
+    color: var(--background);
+  }
+
+  th,
+  .total > td {
+    font-size: 16pt;
+    font-weight: 600;
+  }
+
+  td {
+    font-size: 14pt;
+  }
 }
 
 .dark {
-  background-color: var(--color-black);
   --background: var(--color-black);
   --background-inverse: var(--color-white);
-  color: var(--color-white);
   --shadow-color: #eee;
+  --link-color: #fac000;
 
-  nav a {
-    color: #fac000;
-    font-weight: bold;
-  }
   .type-nav {
     color: #fac000;
     font-weight: bold;
+    --link-color-hover: #f5a400;
   }
 }
 
 .light {
-  background-color: var(--color-white);
   --background: var(--color-white);
   --background-inverse: var(--color-black);
-  color: var(--color-black);
   --shadow-color: var(--color-black);
+  --link-color: #0000ee;
+  --link-color-hover: #551a8b;
 
-  nav a {
-    color: blue;
-    font-weight: bold;
-    &:hover {
-      color: rgb(67, 64, 64);
-    }
+  tr:hover td {
+    color: var(--background);
   }
   .type-nav {
     color: blue;
@@ -90,14 +121,18 @@ body {
 }
 
 .light-dark {
-  border-radius: 50%;
+  --_size: 3rem;
+
+  width: var(--_size);
+  height: var(--_size);
+  border-radius: calc(var(--_size) / 2);
   padding: 10px;
   border: 2px solid var(--background-inverse);
   background-color: var(--background);
   color: var(--background-inverse);
-}
+  transition: all 0.2s ease;
 
-.light-dark:hover {
-  transition: 0.2s;
-  border: 5px solid var(--background-inverse);
+  &:hover {
+    border-color: var(--link-color-hover);
+  }
 }

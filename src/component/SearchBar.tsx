@@ -31,7 +31,7 @@ export default function SearchBar() {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
 
-    const filteredItems = data.filter((p) =>
+    const filteredItems = data.filter((p: { name: string }) =>
       p.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -44,11 +44,12 @@ export default function SearchBar() {
         type="text"
         value={searchItem}
         onChange={handleInputChange}
-        placeholder="cherche un Pokemon..."
+        placeholder="Rechercher un Pokemon..."
+        id="search-input
       />
       {searchItem.length <= 2 ? (
         <p>
-          <i>3 charactere min</i>
+          <i>3 caractères min.</i>
         </p>
       ) : (
         <ul className="search-list">
@@ -56,7 +57,7 @@ export default function SearchBar() {
           {filteredP?.map((p: poketype) => (
             <Link to={`/pokemon/${p.name}`}>
               <li key={p.id} className="search-result">
-                {p.name}{" "}
+                {p.name}
                 <img
                   className="sprite-search"
                   src={p.sprite}
