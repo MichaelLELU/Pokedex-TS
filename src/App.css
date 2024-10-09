@@ -52,6 +52,7 @@ body {
 
     .nav-link {
       font-size: 1.4em;
+      font-weight: bold;
     }
     .nav-link:focus {
       color: var(--link-color-hover);
