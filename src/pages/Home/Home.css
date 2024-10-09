@@ -76,10 +76,16 @@ h2 button {
 
 /** SEARCH COMPONENT */
 
+label {
+  font-size: 1.2rem;
+  width: 70%;
+}
+
 .search-comp {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   gap: 1em;
 }
 
@@ -120,9 +126,9 @@ h2 button {
 }
 
 #search-input {
-  width: 70%;
   padding: 0.5em;
   border-radius: 10px;
+  width: 100%;
   border: 2px solid var(--background-inverse);
   background-color: var(--background);
   color: var(--background-inverse);
