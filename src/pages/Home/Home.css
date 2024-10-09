@@ -59,11 +59,12 @@ h2 button {
 }
 
 .nav-link {
-  color: #fac000;
+  color: var(--link-color);
   user-select: none;
 
   &:hover {
     text-decoration: underline;
+    color: var(--link-color-hover);
   }
 }
 
