@@ -9,6 +9,34 @@ import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
 import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
 
+async function getPkmnData() {
+  const cacheTTL = 5 * 24 * 60 * 60 * 1000;
+  const cachedData = localStorage.getItem("pkmnData");
+  const cachedTime = localStorage.getItem("cacheTTL");
+
+  if (cachedData && cachedTime) {
+    const timestamp = Number(cachedTime);
+    if (timestamp + cacheTTL > Date.now()) {
+      return JSON.parse(cachedData);
+    }
+  } else {
+    localStorage.removeItem("pkmnData");
+    localStorage.removeItem("cacheTTL");
+
+    try {
+      return axios.get("https://pokebuildapi.fr/api/v1/pokemon").then((res) => {
+        localStorage.setItem("pkmnData", JSON.stringify(res.data));
+        localStorage.setItem("cacheTTL", Date.now().toString());
+        return res.data;
+      });
+    } catch (error) {
+      console.error(error);
+      // TODO: replace all console.error with proper error handling
+      return [];
+    }
+  }
+}
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -16,16 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => {
-          try {
-            return axios
-              .get("https://pokebuildapi.fr/api/v1/pokemon")
-              .then((res) => res.data);
-          } catch (error) {
-            console.error(error);
-            return [];
-          }
-        },
+        loader: () => getPkmnData(),
       },
       {
         path: "/type/:name",
