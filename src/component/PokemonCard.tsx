@@ -1,5 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import pokeball from "../assets/pokeball.svg";
 import "./PokemonCard.css";
 
 interface PokemonCardProps {
@@ -59,7 +61,13 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
       <Link to={`/pokemon/${Pokemon.id}`}>
         <h2>{Pokemon.name}</h2>
         <p>ID: {Pokemon.pokedexId}</p>
-        <img src={Pokemon.image} alt={Pokemon.name} loading="lazy" />
+        <LazyLoadImage
+          src={Pokemon.image}
+          alt={Pokemon.name}
+          width={200}
+          height={200}
+          placeholderSrc={pokeball}
+        />
       </Link>
       <div id="type-button">
         {Pokemon.apiTypes.map(
