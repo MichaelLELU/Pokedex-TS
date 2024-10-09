@@ -50,11 +50,14 @@ body {
     max-height: 3rem;
     font-weight: bold;
 
+    .nav-link {
+      font-size: 1.4em;
+    }
+
     ul {
       list-style-type: none;
       display: flex;
       justify-content: space-around;
-      font-size: 1.4em;
       gap: 2rem;
 
       svg {
@@ -68,8 +71,10 @@ body {
     }
     @media screen and (max-width: 450px) {
       ul {
-        font-size: 1em;
         gap: 1rem;
+      }
+      .nav-link {
+        font-size: 1em;
       }
     }
   }
