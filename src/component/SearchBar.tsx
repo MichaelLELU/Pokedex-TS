@@ -76,6 +76,7 @@ export default function SearchBar() {
               <Link to={`/pokemon/${p.id}`} key={p.id}>
                 <li className="search-result">
                   {p.name}
+                  <p>{p.id}</p>
                   <img
                     className="sprite-search"
                     src={p.sprite}
