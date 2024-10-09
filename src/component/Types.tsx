@@ -28,12 +28,12 @@ export default function Types() {
 
   return (
     <>
-      <p className="nav-link">
-        Types
-        <button onClick={toggleOnClick} className="type-modal">
+      <button onClick={toggleOnClick} className="type-modal">
+        <p className="nav-link">
+          Types
           {show === false ? <PanelTopOpen /> : <PanelTopClose />}
-        </button>
-      </p>
+        </p>
+      </button>
       {show && (
         <nav>
           <ul className="type-container">
