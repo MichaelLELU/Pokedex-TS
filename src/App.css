@@ -48,11 +48,13 @@ body {
     margin-bottom: 2rem;
     padding: 1rem;
     max-height: 3rem;
+    font-weight: bold;
 
     ul {
       list-style-type: none;
       display: flex;
       justify-content: space-around;
+      font-size: 1.4em;
       gap: 2rem;
 
       svg {
@@ -64,8 +66,13 @@ body {
       font-family: "Futura T OT", sans-serif;
       cursor: pointer;
     }
+    @media screen and (max-width: 450px) {
+      ul {
+        font-size: 1em;
+        gap: 1rem;
+      }
+    }
   }
-
   nav + h1 {
     text-align: center;
     margin-bottom: 1rem;

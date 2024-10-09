@@ -93,13 +93,18 @@ export default function SearchBar() {
           <p>Rechercher par ID</p>
           <input
             type="number"
-            value={findbyId || ""}
+            value={findbyId}
             onChange={handleInputChangeN}
             placeholder="id du Pokemon..."
             id="search-input"
           />
         </label>
-        {filteredById.length === 0 ? null : (
+
+        {filteredById.length === 0 ? (
+          <p>
+            <i>nombre seulement</i>
+          </p>
+        ) : filteredById.length === 0 ? null : (
           <ul className="search-list">
             {filteredById.length === 0 && findbyId !== "" ? (
               <p>Aucun résultat</p>
