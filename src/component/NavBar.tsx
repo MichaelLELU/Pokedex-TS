@@ -16,12 +16,12 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
     <nav>
       <ul>
         <li>
-          <Link to="/">
+          <Link to="/" className="nav-link">
             Home <House />
           </Link>
         </li>
         <li>
-          <Link to="/teambuilder">
+          <Link to="/teambuilder" className="nav-link">
             Équipe aléatoire <Dices />
           </Link>
         </li>
