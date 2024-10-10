@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import axios from "axios";
@@ -16,14 +15,8 @@ async function getPkmnData() {
   const timestamp = Number(cachedTime);
 
   if (cachedData && cachedTime && timestamp + cacheTTL > Date.now()) {
-    console.info("Using cached data");
-    console.info("Timestamp: ", timestamp);
-    console.info("Cache TTL: ", cacheTTL);
-    console.info("Current time: ", Date.now());
-    console.info("Time remaining: ", timestamp + cacheTTL - Date.now());
     return JSON.parse(cachedData);
   } else {
-    console.info("Cached data expired. Fetching new data");
     localStorage.removeItem("pkmnData");
     localStorage.removeItem("cacheDate");
 
