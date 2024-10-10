@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ToggleBtn from "./ToggleBtn";
@@ -20,19 +20,24 @@ export default function SearchBar() {
   const [filteredP, setFilteredP] = useState<poketype[]>([]);
   const [filteredById, setFilteredById] = useState<poketype[]>([]);
 
-  const fetchPokemons = async () => {
-    try {
-      const res = await axios.get("https://pokebuildapi.fr/api/v1/pokemon");
-      const data = res.data;
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const pokemons = useMemo(() => {
+    const fetchPokemons = async () => {
+      try {
+        return await axios
+          .get("https://pokebuildapi.fr/api/v1/pokemon")
+          .then((res) => res.data);
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    };
+
+    return fetchPokemons();
+  }, []);
 
   useEffect(() => {
-    fetchPokemons();
-  }, []);
+    pokemons.then((res) => setData(res));
+  }, [pokemons]);
 
   const handleInputChangeN = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numberTerm = e.target.value ? parseInt(e.target.value) : "";
