@@ -76,6 +76,7 @@ body {
     @media screen and (max-width: 450px) {
       ul {
         gap: 1rem;
+        padding: 1em;
       }
       .nav-link {
         font-size: 1em;
