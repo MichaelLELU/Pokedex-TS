@@ -144,8 +144,7 @@ body {
 
 .light-dark {
   --_size: 3rem;
-  margin-right: 50%;
-  margin-left: 50%;
+
   margin-bottom: 2em;
   width: var(--_size);
   height: var(--_size);
@@ -159,6 +158,11 @@ body {
   &:hover {
     border-color: var(--link-color-hover);
   }
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 /* Style de base pour le conteneur du select */
