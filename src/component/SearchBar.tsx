@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ToogleBtn from "./ToogleBtn";
+import ToggleBtn from "./ToggleBtn";
 
 type poketype = {
   id: number;
@@ -10,9 +10,9 @@ type poketype = {
 };
 
 export default function SearchBar() {
-  const [toogle, setToogle] = useState(false) as [
+  const [toggle, setToggle] = useState(false) as [
     boolean,
-    (toogle: boolean) => void,
+    (toggle: boolean) => void
   ];
   const [searchItem, setSearchItem] = useState("");
   const [findbyId, setFindById] = useState<number | "">("");
@@ -29,7 +29,7 @@ export default function SearchBar() {
       console.error(error);
     }
   };
-  console.log(toogle);
+
   useEffect(() => {
     fetchPokemons();
   }, []);
@@ -60,10 +60,10 @@ export default function SearchBar() {
   return (
     <>
       <div className="search-by">
-        <ToogleBtn toogle={toogle} setToogle={setToogle} />
+        <ToggleBtn toggle={toggle} setToggle={setToggle} />
       </div>
       <div className="search-container">
-        {toogle === false ? (
+        {toggle === false ? (
           <div className="search-comp">
             <label htmlFor="name">
               <p>Rechercher par Nom</p>

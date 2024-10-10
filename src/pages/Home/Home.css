@@ -133,11 +133,11 @@ label {
   border: 2px solid var(--background-inverse);
   background-color: var(--background);
   color: var(--background-inverse);
-}
 
-#search-input:focus {
-  border: 3px solid #fac000;
-  outline: none;
+  &:focus {
+    border: 3px solid #fac000;
+    outline: none;
+  }
 }
 
 .search-container {
