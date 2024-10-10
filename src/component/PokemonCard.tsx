@@ -14,6 +14,7 @@ export type poketype = {
   pokedexId: number;
   image: string;
   apiTypes: { name: string; image: string }[];
+  apiGeneration: number;
 };
 
 export default function PokemonCard({ creature }: PokemonCardProps) {
@@ -62,7 +63,7 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
         cardContainer.current?.style.setProperty("background", color1);
       }
 
-      cardContainer.current?.style.setProperty("color", "#fefefe");
+      cardContainer.current?.style.setProperty("--_color", "#fefefe");
     }
   }, [Pokemon.apiTypes]);
 

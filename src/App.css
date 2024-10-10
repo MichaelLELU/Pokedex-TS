@@ -53,9 +53,14 @@ body {
     .nav-link {
       font-size: 1.4em;
       font-weight: bold;
+
+      &:focus {
+        color: var(--link-color-hover);
+      }
     }
-    .nav-link:focus {
-      color: var(--link-color-hover);
+    label {
+      display: flex;
+      flex-direction: column;
     }
 
     ul {
@@ -64,8 +69,8 @@ body {
       justify-content: space-around;
       gap: 2rem;
 
-      svg {
-        vertical-align: bottom;
+      .lucide {
+        vertical-align: top;
       }
     }
 
@@ -139,7 +144,9 @@ body {
 
 .light-dark {
   --_size: 3rem;
-
+  margin-right: 50%;
+  margin-left: 50%;
+  margin-bottom: 2em;
   width: var(--_size);
   height: var(--_size);
   border-radius: calc(var(--_size) / 2);
@@ -152,4 +159,17 @@ body {
   &:hover {
     border-color: var(--link-color-hover);
   }
+}
+
+/* Style de base pour le conteneur du select */
+.styled-select {
+  padding: 8px 12px;
+  border: 1px solid var(--link-color);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  width: 90px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
