@@ -6,7 +6,7 @@
   margin-bottom: 1rem;
 }
 
-.toggle-btn {
+.toogle-btn {
   background-color: var(--background-inverse);
   border: 1 px solid var(--background);
   box-shadow: 1px 1px 3px var(--shadow-color);
@@ -20,7 +20,7 @@
   font-weight: 600;
 }
 
-.toggle-btn .thumb {
+.toogle-btn .thumb {
   --_size: 1rem;
   background-color: var(--link-color);
   border: 1px solid var(--background);
@@ -36,8 +36,10 @@
   transform: translateY(-50%);
 }
 
-.toggle-btn.toggled .thumb {
-  left: calc(100% - 1.25rem);
+
+.toogle-btn.toogled .thumb {
+  left: calc(70px);
+
 }
 
 @media screen and (max-width: 450px) {

@@ -15,7 +15,7 @@ export default function ToggleBtn({ toggle, setToggle }: ToggleBtnProps) {
       Rechercher par
       <button
         onClick={toggleSearch}
-        className={`toggle-btn ${toggle! ? "toggled" : ""}`}
+        className={`toogle-btn ${toggle! ? "toogled" : ""}`}
       >
         {toggle === false ? "NOM" : "ID"}
         <div className="thumb"></div>
