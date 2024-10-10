@@ -2,31 +2,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.8rem;
   margin-bottom: 1rem;
 }
 
-.toogle-btn {
+.toggle-btn {
   background-color: var(--background-inverse);
   border: 1 px solid var(--background);
   box-shadow: 1px 1px 3px var(--shadow-color);
   border-radius: 99px;
-  width: 80px;
+  min-width: 90px;
   height: 25px;
   color: var(--background);
-  transition: background-color 0.2s ease border-color 0.2s ease;
+  transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
+  font-weight: 600;
 }
 
-.toogle-btn .thumb {
+.toggle-btn .thumb {
+  --_size: 1rem;
   background-color: var(--link-color);
   border: 1px solid var(--background);
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: var(--_size);
+  height: var(--_size);
   display: inline-block;
+  transition: left 0.25s ease;
   transform: translateX(0);
-  transition: left 0.15s ease;
   position: absolute;
   left: 3px;
   top: 50%;

@@ -46,7 +46,7 @@ export default function Types() {
     <>
       <button onClick={toggleOnClick} className="type-modal">
         <p className="nav-link">
-          Types
+          {"Types "}
           {show === false ? <PanelTopOpen /> : <PanelTopClose />}
         </p>
       </button>

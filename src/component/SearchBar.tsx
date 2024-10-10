@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ToogleBtn from "./ToogleBtn";
+import ToggleBtn from "./ToggleBtn";
 
 type poketype = {
   id: number;
@@ -10,9 +10,9 @@ type poketype = {
 };
 
 export default function SearchBar() {
-  const [toogle, setToogle] = useState(false) as [
+  const [toggle, setToggle] = useState(false) as [
     boolean,
-    (toogle: boolean) => void,
+    (toggle: boolean) => void
   ];
   const [searchItem, setSearchItem] = useState("");
   const [findbyId, setFindById] = useState<number | "">("");
@@ -20,18 +20,24 @@ export default function SearchBar() {
   const [filteredP, setFilteredP] = useState<poketype[]>([]);
   const [filteredById, setFilteredById] = useState<poketype[]>([]);
 
-  const fetchPokemons = async () => {
-    try {
-      const res = await axios.get("https://pokebuildapi.fr/api/v1/pokemon");
-      const data = res.data;
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
-    fetchPokemons();
+  const pokemons = useMemo(() => {
+    const fetchPokemons = async () => {
+      try {
+        return await axios
+          .get("https://pokebuildapi.fr/api/v1/pokemon")
+          .then((res) => res.data);
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    };
+
+    return fetchPokemons();
   }, []);
+
+  useEffect(() => {
+    pokemons.then((res) => setData(res));
+  }, [pokemons]);
 
   const handleInputChangeN = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numberTerm = e.target.value ? parseInt(e.target.value) : "";
@@ -59,10 +65,10 @@ export default function SearchBar() {
   return (
     <>
       <div className="search-by">
-        <ToogleBtn toogle={toogle} setToogle={setToogle} />
+        <ToggleBtn toggle={toggle} setToggle={setToggle} />
       </div>
       <div className="search-container">
-        {toogle === false ? (
+        {toggle === false ? (
           <div className="search-comp">
             <label htmlFor="name">
               <p>Rechercher par Nom</p>

@@ -53,9 +53,10 @@ body {
     .nav-link {
       font-size: 1.4em;
       font-weight: bold;
-    }
-    .nav-link:focus {
-      color: var(--link-color-hover);
+
+      &:focus {
+        color: var(--link-color-hover);
+      }
     }
     label {
       display: flex;
@@ -68,8 +69,8 @@ body {
       justify-content: space-around;
       gap: 2rem;
 
-      svg {
-        vertical-align: bottom;
+      .lucide {
+        vertical-align: top;
       }
     }
 
