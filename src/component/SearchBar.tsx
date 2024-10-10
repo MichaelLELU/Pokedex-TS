@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ToogleBtn from "./ToogleBtn";
 
 type poketype = {
   id: number;
@@ -9,6 +10,10 @@ type poketype = {
 };
 
 export default function SearchBar() {
+  const [toogle, setToogle] = useState(false) as [
+    boolean,
+    (toogle: boolean) => void,
+  ];
   const [searchItem, setSearchItem] = useState("");
   const [findbyId, setFindById] = useState<number | "">("");
   const [data, setData] = useState<poketype[]>([]);
@@ -24,7 +29,7 @@ export default function SearchBar() {
       console.error(error);
     }
   };
-
+  console.log(toogle);
   useEffect(() => {
     fetchPokemons();
   }, []);
@@ -53,80 +58,88 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="search-container">
-      <div className="search-comp">
-        <label htmlFor="name">
-          <p>Rechercher par Nom</p>
-          <input
-            type="text"
-            value={searchItem}
-            onChange={handleInputChangeS}
-            placeholder="Rechercher un Pokemon..."
-            id="search-input"
-          />
-        </label>
-        {searchItem.length <= 2 ? (
-          <p>
-            <i>3 caractères min.</i>
-          </p>
-        ) : (
-          <ul className="search-list">
-            {filteredP.length === 0 ? <p>Aucun résultat</p> : null}
-            {filteredP.map((p: poketype) => (
-              <Link to={`/pokemon/${p.id}`} key={p.id}>
-                <li className="search-result">
-                  {p.name}
-                  <p>{p.id}</p>
-                  <img
-                    className="sprite-search"
-                    src={p.sprite}
-                    alt={`sprite of ${p.name}`}
-                    loading="lazy"
-                  />
-                </li>
-              </Link>
-            ))}
-          </ul>
-        )}
+    <>
+      <div className="search-by">
+        <ToogleBtn toogle={toogle} setToogle={setToogle} />
       </div>
-      <div className="search-comp">
-        <label htmlFor="id">
-          <p>Rechercher par ID</p>
-          <input
-            type="number"
-            value={findbyId}
-            onChange={handleInputChangeN}
-            placeholder="id du Pokemon..."
-            id="search-input"
-          />
-        </label>
-
-        {filteredById.length === 0 ? (
-          <p>
-            <i>nombre seulement</i>
-          </p>
-        ) : filteredById.length === 0 ? null : (
-          <ul className="search-list">
-            {filteredById.length === 0 && findbyId !== "" ? (
-              <p>Aucun résultat</p>
+      <div className="search-container">
+        {toogle === false ? (
+          <div className="search-comp">
+            <label htmlFor="name">
+              <p>Rechercher par Nom</p>
+              <input
+                type="text"
+                value={searchItem}
+                onChange={handleInputChangeS}
+                placeholder="Rechercher un Pokemon..."
+                id="search-input"
+              />
+            </label>
+            {searchItem.length <= 2 ? (
+              <p>
+                <i>3 caractères min.</i>
+              </p>
             ) : (
-              filteredById.map((p: poketype) => (
-                <Link to={`/pokemon/${p.id}`} key={p.id}>
-                  <li className="search-result">
-                    {p.name}
-                    <img
-                      className="sprite-search"
-                      src={p.sprite}
-                      alt={`sprite of ${p.name}`}
-                      loading="lazy"
-                    />
-                  </li>
-                </Link>
-              ))
+              <ul className="search-list">
+                {filteredP.length === 0 ? <p>Aucun résultat</p> : null}
+                {filteredP.map((p: poketype) => (
+                  <Link to={`/pokemon/${p.id}`} key={p.id}>
+                    <li className="search-result">
+                      {p.name}
+                      <p>{p.id}</p>
+                      <img
+                        className="sprite-search"
+                        src={p.sprite}
+                        alt={`sprite of ${p.name}`}
+                        loading="lazy"
+                      />
+                    </li>
+                  </Link>
+                ))}
+              </ul>
             )}
-          </ul>
+          </div>
+        ) : (
+          <div className="search-comp">
+            <label htmlFor="id">
+              <p>Rechercher par ID</p>
+              <input
+                type="number"
+                value={findbyId}
+                onChange={handleInputChangeN}
+                placeholder="id du Pokemon..."
+                id="search-input"
+              />
+            </label>
+
+            {filteredById.length === 0 ? (
+              <p>
+                <i>nombre seulement</i>
+              </p>
+            ) : filteredById.length === 0 ? null : (
+              <ul className="search-list">
+                {filteredById.length === 0 && findbyId !== "" ? (
+                  <p>Aucun résultat</p>
+                ) : (
+                  filteredById.map((p: poketype) => (
+                    <Link to={`/pokemon/${p.id}`} key={p.id}>
+                      <li className="search-result">
+                        {p.name}
+                        <img
+                          className="sprite-search"
+                          src={p.sprite}
+                          alt={`sprite of ${p.name}`}
+                          loading="lazy"
+                        />
+                      </li>
+                    </Link>
+                  ))
+                )}
+              </ul>
+            )}
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
