@@ -37,7 +37,7 @@
 }
 
 .toggle-btn.toggled .thumb {
-  left: calc(55px);
+  left: calc(100% - 1.25rem);
 }
 
 @media screen and (max-width: 450px) {
