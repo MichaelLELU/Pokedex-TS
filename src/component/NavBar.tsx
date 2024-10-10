@@ -60,9 +60,11 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
           </li>
         </ul>
       </nav>
-      <button onClick={toggleOnClick} className="light-dark">
-        {mode ? <Moon /> : <Sun />}
-      </button>
+      <div className="button-container">
+        <button onClick={toggleOnClick} className="light-dark">
+          {mode ? <Moon /> : <Sun />}
+        </button>
+      </div>
     </>
   );
 }
