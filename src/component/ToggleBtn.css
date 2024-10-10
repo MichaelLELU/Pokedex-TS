@@ -9,7 +9,7 @@
 .toggle-btn {
   background-color: var(--background-inverse);
   border: 1 px solid var(--background);
-  box-shadow: 1px 1px 5px var(--shadow-color);
+  box-shadow: 1px 1px 3px var(--shadow-color);
   border-radius: 99px;
   min-width: 90px;
   height: 25px;
@@ -36,6 +36,13 @@
   transform: translateY(-50%);
 }
 
-.toggle-btn.toggled .thumb {
-  left: calc(100% - 1.3rem);
+.toogle-btn.toogled .thumb {
+  left: calc(55px);
+}
+
+@media screen and (max-width: 450px) {
+  .search-by {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 }

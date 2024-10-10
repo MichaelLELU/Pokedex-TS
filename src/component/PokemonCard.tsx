@@ -43,15 +43,25 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
     };
 
     const getTypeColor = (type: string) => {
-      return pkmnTypes[type];
+      return pkmnTypes[type] || "#ffffff";
     };
 
-    if (Pokemon.apiTypes && Pokemon.apiTypes[0]) {
-      const currentType: string = Pokemon.apiTypes[0].name;
-      cardContainer.current?.style.setProperty(
-        "--_background",
-        getTypeColor(currentType)
-      );
+    if (Pokemon.apiTypes && Pokemon.apiTypes.length > 0) {
+      const type1: string = Pokemon.apiTypes[0].name;
+      const color1 = getTypeColor(type1);
+
+      if (Pokemon.apiTypes[1]) {
+        const type2: string = Pokemon.apiTypes[1].name;
+        const color2 = getTypeColor(type2);
+
+        cardContainer.current?.style.setProperty(
+          "background",
+          `linear-gradient(180deg, ${color1}, ${color2})`
+        );
+      } else {
+        cardContainer.current?.style.setProperty("background", color1);
+      }
+
       cardContainer.current?.style.setProperty("--_color", "#fefefe");
     }
   }, [Pokemon.apiTypes]);
