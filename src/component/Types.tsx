@@ -21,6 +21,22 @@ export default function Types() {
   };
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isTypeModal = target.closest(".type-modal");
+      const isTypeContainer = target.closest(".type-container");
+
+      if (!isTypeModal && !isTypeContainer) {
+        setShow(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     axios.get(`https://pokebuildapi.fr/api/v1/types`).then((response) => {
       setDataType(response.data);
     });
