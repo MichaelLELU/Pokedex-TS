@@ -33,7 +33,7 @@ main {
   transition: transform 0.3s ease;
   border: 10px solid var(--_border, #bfc200);
   border-radius: var(--_border-radius, 5%);
-  text-shadow: 2px 2px 2px var(--color-black, black);
+  text-shadow: 1px 1px 2px var(--color-black, rgb(57, 56, 56));
 
   &:hover {
     transform: scale(1.05);
@@ -43,7 +43,7 @@ main {
     margin-bottom: 0.25rem;
     margin-top: 0px;
     font-size: 24pt;
-    color: var(--_color, #4a4a4a);
+    color: var(--_color, #191818);
   }
 
   img {
@@ -57,7 +57,7 @@ main {
 
   p {
     font-size: 14pt;
-    color: var(--_color, #4a4a4a);
+    color: var(--_color, #191818);
   }
 }
 

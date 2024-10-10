@@ -119,7 +119,7 @@ export default function SearchBar() {
 
             {filteredById.length === 0 ? (
               <p>
-                <i>nombre seulement</i>
+                <i>nombre seulement </i>
               </p>
             ) : filteredById.length === 0 ? null : (
               <ul className="search-list">

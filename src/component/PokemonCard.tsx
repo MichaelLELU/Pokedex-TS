@@ -14,6 +14,7 @@ export type poketype = {
   pokedexId: number;
   image: string;
   apiTypes: { name: string; image: string }[];
+  apiGeneration: number;
 };
 
 export default function PokemonCard({ creature }: PokemonCardProps) {

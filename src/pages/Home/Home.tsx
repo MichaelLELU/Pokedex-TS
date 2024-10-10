@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Bienvenue Dresseur</h1>
+      <h1>Bienvenue Dresseur ({dataPokemon.length} Pokémon)</h1>
       <SearchBar />
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
@@ -18,4 +18,3 @@ export default function Home() {
     </>
   );
 }
-
