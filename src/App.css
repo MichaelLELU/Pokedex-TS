@@ -144,7 +144,6 @@ body {
 
 .light-dark {
   --_size: 3rem;
-
   margin-bottom: 2em;
   width: var(--_size);
   height: var(--_size);
