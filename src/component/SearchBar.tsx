@@ -29,7 +29,6 @@ export default function SearchBar() {
       console.error(error);
     }
   };
-  console.log(toogle);
   useEffect(() => {
     fetchPokemons();
   }, []);

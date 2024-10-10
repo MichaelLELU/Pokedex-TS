@@ -1,13 +1,14 @@
 .search-by {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
 .toogle-btn {
   background-color: var(--background-inverse);
   border: 1 px solid var(--background);
-  box-shadow: 1px 1px 5px var(--shadow-color);
+  box-shadow: 1px 1px 3px var(--shadow-color);
   border-radius: 99px;
   width: 80px;
   height: 25px;
@@ -34,4 +35,11 @@
 
 .toogle-btn.toogled .thumb {
   left: calc(55px);
+}
+
+@media screen and (max-width: 450px) {
+  .search-by {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 }
