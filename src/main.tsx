@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./pages/Home/Home.tsx";
 import App from "./App.tsx";
 import "./index.css";
+import GenerationPage from "./pages/Generation/GenerationPage.tsx";
 import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
 import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
@@ -81,6 +82,22 @@ const router = createBrowserRouter([
           try {
             return axios
               .get(`https://pokebuildapi.fr/api/v1/random/team/suggest`)
+              .then((res) => res.data);
+          } catch (error) {
+            console.error(error);
+            return [];
+          }
+        },
+      },
+      {
+        path: "/generation/:id",
+        element: <GenerationPage />,
+        loader: ({ params }) => {
+          try {
+            return axios
+              .get(
+                `https://pokebuildapi.fr/api/v1/pokemon/generation/${params.id}`
+              )
               .then((res) => res.data);
           } catch (error) {
             console.error(error);

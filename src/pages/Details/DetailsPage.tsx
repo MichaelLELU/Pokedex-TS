@@ -7,6 +7,7 @@ interface Pokemon {
   pokedexId: number;
   sprite: string;
   image: string;
+  apiGeneration: number;
   apiTypes: { name: string; image: string }[];
   apiEvolutions: { name: string; pokedexId: number }[];
   apiPreEvolution: { name: string; pokedexIdd: number };
@@ -28,12 +29,14 @@ export default function DetailsPage() {
         />
       </h1>
       <p>ID: {pokemon.pokedexId}</p>
+
       <img
         src={pokemon.image}
         alt={pokemon.name}
         loading="lazy"
         className="portrait"
       />
+
       <div className="type-button">
         {pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
@@ -44,7 +47,13 @@ export default function DetailsPage() {
           )
         )}
       </div>
-
+      <p>
+        Generations:{" "}
+        <Link to={`/generation/${pokemon.apiGeneration}`}>
+          {" "}
+          {pokemon.apiGeneration}
+        </Link>
+      </p>
       <article className="evolutions-container">
         <div>
           {pokemon.apiPreEvolution.name ? <h2>Pré-évolution :</h2> : null}
