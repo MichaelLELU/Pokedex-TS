@@ -18,4 +18,4 @@ export default function Home() {
     </>
   );
 }
-//todo trouver les bon type pour les props
+
