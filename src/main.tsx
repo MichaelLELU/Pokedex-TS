@@ -12,21 +12,25 @@ import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
 async function getPkmnData() {
   const cacheTTL = 5 * 24 * 60 * 60 * 1000;
   const cachedData = localStorage.getItem("pkmnData");
-  const cachedTime = localStorage.getItem("cacheTTL");
+  const cachedTime = localStorage.getItem("cacheDate");
+  const timestamp = Number(cachedTime);
 
-  if (cachedData && cachedTime) {
-    const timestamp = Number(cachedTime);
-    if (timestamp + cacheTTL > Date.now()) {
-      return JSON.parse(cachedData);
-    }
+  if (cachedData && cachedTime && timestamp + cacheTTL > Date.now()) {
+    console.info("Using cached data");
+    console.info("Timestamp: ", timestamp);
+    console.info("Cache TTL: ", cacheTTL);
+    console.info("Current time: ", Date.now());
+    console.info("Time remaining: ", timestamp + cacheTTL - Date.now());
+    return JSON.parse(cachedData);
   } else {
+    console.info("Cached data expired. Fetching new data");
     localStorage.removeItem("pkmnData");
-    localStorage.removeItem("cacheTTL");
+    localStorage.removeItem("cacheDate");
 
     try {
       return axios.get("https://pokebuildapi.fr/api/v1/pokemon").then((res) => {
         localStorage.setItem("pkmnData", JSON.stringify(res.data));
-        localStorage.setItem("cacheTTL", Date.now().toString());
+        localStorage.setItem("cacheDate", Date.now().toString());
         return res.data;
       });
     } catch (error) {
@@ -97,7 +101,5 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+  <RouterProvider router={router} />
 );
