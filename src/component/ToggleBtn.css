@@ -4,6 +4,11 @@
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 }
 
 .toogle-btn {
@@ -36,15 +41,6 @@
   transform: translateY(-50%);
 }
 
-
 .toogle-btn.toogled .thumb {
-  left: calc(70px);
-
-}
-
-@media screen and (max-width: 450px) {
-  .search-by {
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
+  left: 69px;
 }

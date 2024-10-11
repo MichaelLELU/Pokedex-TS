@@ -7,10 +7,12 @@ function App() {
   const [mode, setMode] = useState(false) as [boolean, (mode: boolean) => void];
 
   return (
-    <main className={mode === true ? "light" : "dark"}>
+    <div className={mode === true ? "light" : "dark"}>
       <NavBar mode={mode} setMode={setMode} />
-      <Outlet />
-    </main>
+      <main>
+        <Outlet />
+      </main>
+    </div>
   );
 }
 
