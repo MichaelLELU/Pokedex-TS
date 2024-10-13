@@ -37,7 +37,7 @@ export default function DetailsPage() {
         className="portrait"
       />
 
-      <div className="type-button">
+      <div className="type-button-container">
         {pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (
             <Link key={id} to={`/type/${type.name}`} className="button-type">
@@ -47,31 +47,36 @@ export default function DetailsPage() {
           )
         )}
       </div>
-      <p>
-        Generations:{" "}
-        <Link to={`/generation/${pokemon.apiGeneration}`}>
-          {" "}
+      <p style={{ fontSize: "14pt" }}>
+        <span style={{ userSelect: "none" }}>{"Generation: "}</span>
+        <Link
+          to={`/generation/${pokemon.apiGeneration}`}
+          style={{ textDecoration: "underline dotted" }}
+        >
           {pokemon.apiGeneration}
         </Link>
       </p>
-      <article className="evolutions-container">
-        <div>
-          {pokemon.apiPreEvolution.name ? <h2>Pré-évolution :</h2> : null}
-          <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexIdd}`}>
-            <h3>{pokemon.apiPreEvolution.name}</h3>
-          </Link>
-        </div>
-        <div>
-          {pokemon.apiEvolutions.length === 0 ? null : (
-            <h2>Évolution{pokemon.apiEvolutions.length > 1 ? "s" : ""} :</h2>
-          )}
-          {pokemon.apiEvolutions.map((evo) => (
-            <Link key={evo.pokedexId} to={`/pokemon/${evo.pokedexId}`}>
-              <h3>{evo.name}</h3>
+      <section className="evolutions-container">
+        {typeof pokemon.apiPreEvolution === "string" &&
+        pokemon.apiPreEvolution === "none" ? null : (
+          <div>
+            <h2>Pré-évolution</h2>
+            <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexIdd}`}>
+              <span>{pokemon.apiPreEvolution.name}</span>
             </Link>
-          ))}
-        </div>
-      </article>
+          </div>
+        )}
+        {pokemon.apiEvolutions.length > 0 && (
+          <div>
+            <h2>Évolution{pokemon.apiEvolutions.length > 1 ? "s" : ""}</h2>
+            {pokemon.apiEvolutions.map((evo) => (
+              <Link key={evo.pokedexId} to={`/pokemon/${evo.pokedexId}`}>
+                <span>{evo.name}</span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
       <Stats stats={pokemon.stats} />
     </div>
   );

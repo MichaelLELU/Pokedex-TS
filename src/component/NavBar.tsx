@@ -19,6 +19,7 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     setSelectedGeneration(value);
+
     if (value) navigate(value);
     else navigate("/");
   };
