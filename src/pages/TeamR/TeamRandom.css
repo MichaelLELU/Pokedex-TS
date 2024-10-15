@@ -34,3 +34,43 @@ tr:hover {
 td {
   color: var(--background-inverse);
 }
+
+details {
+  max-width: 75%;
+  border: 1px solid var(--background-inverse);
+
+  summary {
+    background-color: var(--background-inverse);
+    color: var(--background);
+    text-align: center;
+    padding: 0.25rem;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &[open] div {
+    animation: slideDown 0.2s linear alternate;
+  }
+
+  p {
+    margin: 0.75rem 0;
+    text-align: center;
+  }
+
+  table {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.9375rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

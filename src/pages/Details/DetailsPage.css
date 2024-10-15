@@ -1,16 +1,19 @@
-main.dark {
-  .details-container a {
-    color: #fac000;
-  }
-}
-
 .details-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 1rem;
 
   p + img {
     filter: drop-shadow(4px 4px 1px var(--shadow-color, black));
+  }
+
+  a {
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-color-hover);
+    }
   }
 }
 
@@ -18,6 +21,13 @@ main.dark {
   display: flex;
   gap: 1em;
   align-items: center;
+  margin-bottom: 0;
+
+  & + p {
+    margin-top: 1rem;
+    font-size: 16pt;
+    margin-bottom: 2rem;
+  }
 }
 
 .type {
@@ -31,11 +41,14 @@ main.dark {
   border-radius: 50%;
 }
 
-.type-button {
+.type-button-container {
   display: flex;
+  justify-content: center;
   gap: 1em;
-  margin-bottom: 2em;
+  width: 150px;
+  margin-bottom: 0.5rem;
 }
+
 .button-type {
   display: flex;
   align-items: center;
@@ -45,9 +58,47 @@ main.dark {
 }
 
 .evolutions-container {
-  margin-top: 2em;
-  display: flex;
-  gap: 3em;
+  margin-top: 2rem;
+  gap: 2rem;
+
+  div {
+    margin-bottom: 0.75rem;
+
+    h2 {
+      margin-bottom: 6px;
+      text-align: center;
+      user-select: none;
+
+      /** On peut ajouter du contenu avant ou après un élément avec les pseudo-classes "::before" et "::after" */
+      &::after {
+        content: " :";
+      }
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-bottom: 0.25rem;
+
+      span {
+        font-size: 14pt;
+      }
+    }
+  }
+}
+
+span {
+  &.great {
+    color: green;
+  }
+
+  &.normal {
+    color: orange;
+  }
+
+  &.low {
+    color: red;
+  }
 }
 .id-nav {
   width: 100%;

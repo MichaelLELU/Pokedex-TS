@@ -53,7 +53,7 @@ export default function Types() {
       {show && (
         <nav>
           <ul className="type-container">
-            <Link to="/">
+            <Link to="/" onClick={handleLinkClick}>
               <li className="type-card">
                 <h2>Tous</h2>
                 <img src="/pokeball.svg" alt="Tous les types" loading="lazy" />
