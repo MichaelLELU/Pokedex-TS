@@ -31,6 +31,14 @@ export default function Stats({ stats }: StatsProps) {
     }
   }
 
+  const statsTotal: number =
+    stats.HP +
+    stats.attack +
+    stats.defense +
+    stats.special_attack +
+    stats.special_defense +
+    stats.speed;
+
   return (
     <table>
       <thead>
@@ -63,12 +71,17 @@ export default function Stats({ stats }: StatsProps) {
         <tr className="total">
           <td>Total</td>
           <td>
-            {stats.HP +
-              stats.attack +
-              stats.defense +
-              stats.special_attack +
-              stats.special_defense +
-              stats.speed}
+            <span
+              className={
+                statsTotal >= 550
+                  ? "great"
+                  : statsTotal <= 450
+                  ? "low"
+                  : "normal"
+              }
+            >
+              {statsTotal}
+            </span>
           </td>
         </tr>
       </tbody>

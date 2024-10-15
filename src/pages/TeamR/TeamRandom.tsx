@@ -27,10 +27,10 @@ export default function TeamRandom() {
 
   return (
     <>
-      <h1>Équipe aléatoire</h1>
-      <p style={{ textAlign: "center" }}>
+      <h1 style={{ userSelect: "none" }}>Équipe aléatoire</h1>
+      <p style={{ textAlign: "center", userSelect: "none" }}>
         Génère une liste de 3 Pokémon aléatoires, puis la complète avec 3 autres
-        Pokémon pour obtenir une équipe aux résistances équilibrées
+        Pokémon pour obtenir une équipe aux résistances équilibrées.
       </p>
 
       <div className="pokemon-container">
@@ -39,26 +39,30 @@ export default function TeamRandom() {
         ))}
       </div>
       <section className="section-resist">
-        <button onClick={setOnClick}>Voir les résistances</button>
-        <p>
-          <strong>{resist && resist[0].summary}</strong>
-        </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Resistance</th>
-            </tr>
-          </thead>
-          <tbody>
-            {resist?.map((r) => (
-              <tr id={r.name}>
-                <td>{r.name}</td>
-                <td>{r.message}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <details onClick={setOnClick}>
+          <summary>Voir les résistances</summary>
+          <div>
+            <p>
+              <strong>{resist && resist[0].summary}</strong>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Resistance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {resist?.map((r) => (
+                  <tr id={r.name}>
+                    <td>{r.name}</td>
+                    <td>{r.message}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
       </section>
     </>
   );
