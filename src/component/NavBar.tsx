@@ -42,7 +42,7 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
             onClick={toggleMenu}
             className="menu-btn"
           >
-            {"Menu "}
+            Menu
             <ChevronDown className={`menu-svg${isMenuOpen ? " open" : ""}`} />
           </button>
         )}
