@@ -1,0 +1,35 @@
+.back-to-top {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f0f0f0;
+  color: #1c1c4e;
+  border: none;
+  border-radius: 1em 0 0 1em;
+  padding: 0.75em;
+  font-size: 0.75rem;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.bttb-text {
+  margin-bottom: 15px;
+}
+
+.back-to-top:hover {
+  background-color: #dcdcdc;
+}
+
+.chevron {
+  margin-top: -15px;
+}
