@@ -8,7 +8,7 @@ export default function TypePage() {
 
   return (
     <>
-      <h1>{type.name}</h1>
+      <h1>{type.name} : {pokemons.length} Pokémon</h1>
       <div className="pokemon-container">
         {pokemons.map((p) => (
           <PokemonCard key={p.id} creature={p} />
