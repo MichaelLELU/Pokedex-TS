@@ -19,8 +19,6 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
 
 const { team } = useTeam();
 
-  const rawTeam = localStorage.getItem("pokemonTeamIds");
-const teamCount = rawTeam ? JSON.parse(rawTeam).length : 0;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
