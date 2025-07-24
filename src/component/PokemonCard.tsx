@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import pokeball from "../assets/pokeball.svg";
 import "./PokemonCard.css";
+import AddToTeamButton from "./addToTeamButton/AddToTeam";
 
 interface PokemonCardProps {
   creature: poketype; // Typage du prop pokemon
@@ -80,6 +81,7 @@ export default function PokemonCard({ creature }: PokemonCardProps) {
           placeholderSrc={pokeball}
         />
       </Link>
+      <AddToTeamButton pokemonId={Pokemon.id} />
       <div id="type-button">
         {Pokemon.apiTypes.map(
           (type: { name: string; image: string }, id: number) => (

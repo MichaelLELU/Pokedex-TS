@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Sun, Moon, Dices, House, ChevronDown } from "lucide-react";
+import { Sun, Moon, Dices, House, ChevronDown,Users } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
+import { useTeam } from "../context/TeamContext";
 import Types from "./Types";
 
 interface NavBarProps {
@@ -15,6 +16,11 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
   const toggleOnClick = () => {
     setMode(!mode);
   };
+
+const { team } = useTeam();
+
+  const rawTeam = localStorage.getItem("pokemonTeamIds");
+const teamCount = rawTeam ? JSON.parse(rawTeam).length : 0;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -57,6 +63,11 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
             <li>
               <Link to="/teambuilder" className="nav-link">
                 Équipe aléatoire <Dices />
+              </Link>
+            </li>
+            <li>
+              <Link to="/team" className="nav-link">
+                Équipe {team.length > 0 ? `(${team.length})` : ""} <Users />
               </Link>
             </li>
             <li>

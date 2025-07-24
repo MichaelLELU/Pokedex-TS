@@ -1,0 +1,90 @@
+.coverage-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.coverage-button {
+    margin-top: 3em;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reset-button {
+  margin-left: 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}       
+
+.coverage-button:hover {
+  background-color: #a7a926;
+}
+
+.coverage-table {
+
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+.type-label {
+    display: flex;
+    flex-direction: column;
+}
+.type-cell {
+  font-weight: bold;
+  text-align: left;
+}
+.type-icon {
+  width: 100px;
+  @media screen and (max-width: 768px) {
+    width: 50px;
+  }
+}
+
+.message-cell {
+  font-style: italic;
+  text-align: left;
+  color: black;
+}
+
+.pokemon-sprite {
+  width: 100px;
+
+  margin: -10px;
+  image-rendering: pixelated;
+    @media screen and (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+    }}
+
+    .type-result {
+  color: black;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.type-moyenne {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

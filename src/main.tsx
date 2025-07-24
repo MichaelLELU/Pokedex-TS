@@ -8,6 +8,7 @@ import GenerationPage from "./pages/Generation/GenerationPage.tsx";
 import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
 import TeamRandom from "./pages/TeamR/TeamRandom.tsx";
+import TeamChosed from "./pages/TeamC/TeamChosed.tsx";
 
 async function getPkmnData() {
   const cacheTTL = 5 * 24 * 60 * 60 * 1000;
@@ -71,6 +72,11 @@ const router = createBrowserRouter([
             return [];
           }
         },
+      },
+      {
+        path: "/team",
+        element: <TeamChosed />,
+        loader: () => getPkmnData(),
       },
       {
         path: "/teambuilder",
