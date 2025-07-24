@@ -6,13 +6,6 @@ Petit projet annexe pour m'entraîner au typage avec TypeScript (CDA Wild Code S
 
 [Déploiement "stable"](https://pokedex-ts-try.vercel.app/)
 
-## V1 à venir
-
-
-- Système d'authentification avec création d'équipe(s)
-
-
-> Je suis preneur de nouvelles idées (telle q'une api plus complète)
 
 ## React + TypeScript + Vite
 
@@ -24,7 +17,11 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-
+TODO
+ajouter au page type des onglet :
+"resistant" https://pokebuildapi.fr/api/v1/pokemon/type/double-resistance/:type, 
+"vulnerable" api/v1/pokemon/type/double-weakness/:type,
+"imunisé" https://pokebuildapi.fr/api/v1/pokemon/type/immunity/:type
 
 
 

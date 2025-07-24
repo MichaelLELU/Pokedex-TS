@@ -161,13 +161,6 @@ const getResultIcon = (avg: number) => {
     }
   };
 
-  const getDamageClass = (val: number): string => {
-    if (val === 0) return "immune";
-    if (val < 1) return "resist";
-    if (val === 1) return "neutral";
-    if (val > 1) return "weak";
-    return "";
-  };
 
   const allTypes = team[0]?.results.map((t) => t.name) || [];
 
