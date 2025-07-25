@@ -2,6 +2,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import "./DetailsPage.css";
 import Stats, { StatT } from "../../component/Stats";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
+import AddToTeamButton from "../../component/addToTeamButton/AddToTeam";
 
 interface Pokemon {
   name: string;
@@ -50,6 +51,7 @@ export default function DetailsPage() {
             </Link>
           )}
         </div>
+        <AddToTeamButton pokemonId={pokemon.pokedexId} />
         <img
           src={pokemon.image}
           alt={pokemon.name}
