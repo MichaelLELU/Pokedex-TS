@@ -73,7 +73,6 @@ export default function DetailsPage() {
           <span style={{ userSelect: "none" }}>{"Generation: "}</span>
           <Link
             to={`/generation/${pokemon.apiGeneration}`}
-            style={{ textDecoration: "underline dotted" }}
           >
             {pokemon.apiGeneration}
           </Link>
