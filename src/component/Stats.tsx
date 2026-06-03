@@ -31,13 +31,6 @@ export default function Stats({ stats }: StatsProps) {
     }
   }
 
-  const statsTotal: number =
-    stats.HP +
-    stats.attack +
-    stats.defense +
-    stats.special_attack +
-    stats.special_defense +
-    stats.speed;
 
   return (
     <table>
