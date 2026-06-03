@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Sun, Moon, House, ChevronDown } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
-import { useTeam } from "../context/TeamContext(Obsolette)";
 import Types from "./Types";
 
 interface NavBarProps {
