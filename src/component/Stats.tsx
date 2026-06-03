@@ -68,22 +68,7 @@ export default function Stats({ stats }: StatsProps) {
             )}
           </tr>
         ))}
-        <tr className="total">
-          <td>Total</td>
-          <td>
-            <span
-              className={
-                statsTotal >= 550
-                  ? "great"
-                  : statsTotal <= 450
-                  ? "low"
-                  : "normal"
-              }
-            >
-              {statsTotal}
-            </span>
-          </td>
-        </tr>
+
       </tbody>
     </table>
   );

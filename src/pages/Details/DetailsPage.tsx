@@ -1,23 +1,31 @@
 import { useLoaderData, Link } from "react-router-dom";
+import { useState } from "react";
 import "./DetailsPage.css";
 import Stats, { StatT } from "../../component/Stats";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
-import AddToTeamButton from "../../component/addToTeamButton/AddToTeam";
+
 
 interface Pokemon {
   name: string;
   pokedexId: number;
   sprite: string;
   image: string;
+  shinyImage: string;
   apiGeneration: number;
   apiTypes: { name: string; image: string }[];
   apiEvolutions: { name: string; pokedexId: number }[];
-  apiPreEvolution: { name: string; pokedexIdd: number };
+  apiPreEvolution: { name: string; pokedexId: number; } | "none";
   stats: StatT;
 }
 
-export default function DetailsPage() {
+  export default function DetailsPage() {
   const pokemon = useLoaderData() as Pokemon;
+  const [isShiny, setIsShiny] = useState(false);
+
+  const displayedImage = isShiny && pokemon.shinyImage
+    ? pokemon.shinyImage
+    : pokemon.image;
+
 
   const handleBack = () => {
     window.history.back();
@@ -51,13 +59,21 @@ export default function DetailsPage() {
             </Link>
           )}
         </div>
-        <AddToTeamButton pokemonId={pokemon.pokedexId} />
-        <img
-          src={pokemon.image}
-          alt={pokemon.name}
-          loading="lazy"
-          className="portrait"
-        />
+          <img
+            src={displayedImage}
+            alt={isShiny ? `${pokemon.name} shiny` : pokemon.name}
+            loading="lazy"
+            className="portrait"
+          />
+
+                    <button
+            type="button"
+            onClick={() => setIsShiny((prev) => !prev)}
+            className="shiny-button"
+            disabled={!pokemon.shinyImage}
+          >
+            {isShiny ? "Version normale" : "Version shiny"}
+          </button>
 
         <div className="type-button-container">
           {pokemon.apiTypes.map(
@@ -92,7 +108,7 @@ export default function DetailsPage() {
           pokemon.apiPreEvolution === "none" ? null : (
             <div>
               <h2>Pré-évolution</h2>
-              <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexIdd}`}>
+              <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexId}`}>
                 <span>{pokemon.apiPreEvolution.name}</span>
               </Link>
             </div>

@@ -49,6 +49,15 @@ h2 button {
   vertical-align: middle;
 }
 
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+  margin-top: 3em;
+  justify-content: center;
+}
+
+
 .type-card {
   --_size: 100px;
   display: flex;
@@ -149,9 +158,10 @@ label {
 }
 
 .sprite-search {
-  background-color: #eee;
+  background-color: #eeeeee70;
   border: 1px solid var(--background-inverse);
   border-radius: 50%;
+  width: 120px;
 }
 
 #search-input {

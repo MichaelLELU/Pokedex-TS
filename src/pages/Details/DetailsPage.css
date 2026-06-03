@@ -36,14 +36,17 @@
 }
 
 .sprite {
-  background-color: #eee;
-  border: 1px solid var(--background-inverse);
-  border-radius: 50%;
+  width: 100px;
+}
+.portrait {
+  width: 500px;
+  height: 500px;
 }
 
 .type-button-container {
   display: flex;
   justify-content: center;
+  margin-top: 3.5rem;
   gap: 1em;
   width: 150px;
   margin-bottom: 0.5rem;

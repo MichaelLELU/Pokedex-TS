@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { poketype } from "../../component/PokemonCard";
 import PokemonCard from "../../component/PokemonCard";
 import { useEffect, useState } from "react";
-import DefensiveCoverageButton from "../../component/defenciveCoverageButton/DefensiveCoverageButton";
+import DefensiveCoverageButton from "../../component/defenciveCoverageButton(Obsolette)/DefensiveCoverageButton";
 
 const TEAM_KEY = "pokemonTeamIds";
 

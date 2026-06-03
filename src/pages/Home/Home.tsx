@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <h1>Bienvenue Dresseur ({dataPokemon.length} Pokémon)</h1>
-      <SearchBar />
+       <SearchBar /> 
       <div className="pokemon-container">
         {dataPokemon.map((p) => (
           <PokemonCard key={p.id} creature={p} />

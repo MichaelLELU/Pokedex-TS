@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./component/NavBar";
 import BackToTopButton from "./component/backToTopButton/backToTopButton";
-import { TeamProvider } from "./context/TeamContext";
+import { TeamProvider } from "./context/TeamContext(Obsolette)";
 import "./App.css";
 
 function App() {

@@ -4,10 +4,14 @@ import axios from "axios";
 import { PanelTopOpen, PanelTopClose } from "lucide-react";
 
 export default function Types() {
-  interface dataType {
-    name: string;
-    image: string;
-  }
+interface dataType {
+  name: {
+    fr: string;
+    en: string;
+    jp: string;
+  };
+  sprites: string;
+}
 
   const [dataType, setDataType] = useState<dataType[]>([]);
   const [show, setShow] = useState(false);
@@ -37,8 +41,14 @@ export default function Types() {
   }, []);
 
   useEffect(() => {
-    axios.get(`https://pokebuildapi.fr/api/v1/types`).then((response) => {
-      setDataType(response.data);
+    axios.get(`https://tyradex.app/api/v1/types`).then((response) => {
+      setDataType(
+  response.data.filter(
+    (type: any) =>
+    type.name?.fr &&
+    type.name.fr !== "Inconnu"
+        )
+      );
     });
   }, []);
 
@@ -61,13 +71,12 @@ export default function Types() {
             </Link>
             {dataType?.map((t) => (
               <Link
-                to={`/type/${t.name}`}
-                key={t.name}
+                to={`/type/${t.name.fr}`}
                 onClick={handleLinkClick}
               >
                 <li className="type-card">
-                  <h2>{t.name}</h2>
-                  <img src={t.image} alt={t.name} loading="lazy" />
+                  <h2>{t.name.fr}</h2>
+                  <img src={t.sprites} alt={t.name.fr} loading="lazy" />
                 </li>
               </Link>
             ))}

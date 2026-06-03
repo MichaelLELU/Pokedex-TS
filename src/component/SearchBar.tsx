@@ -24,8 +24,16 @@ export default function SearchBar() {
     const fetchPokemons = async () => {
       try {
         return await axios
-          .get("https://pokebuildapi.fr/api/v1/pokemon")
-          .then((res) => res.data);
+          .get("https://tyradex.app/api/v1/pokemon")
+          .then((res) =>
+            res.data
+              .filter((pokemon: any) => pokemon.pokedex_id)
+              .map((pokemon: any) => ({
+                id: pokemon.pokedex_id,
+                name: pokemon.name.fr,
+                sprite: pokemon.sprites?.regular || "",
+              }))
+          );
       } catch (error) {
         console.error(error);
         return [];
@@ -55,9 +63,9 @@ export default function SearchBar() {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
 
-    const filteredItems = data.filter((p) =>
-      p.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const filteredItems = data.filter((p) =>
+    p.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
     setFilteredP(filteredItems);
   };
@@ -117,13 +125,13 @@ export default function SearchBar() {
               />
             </label>
 
-            {filteredById.length === 0 ? (
-              <p>
-                <i>nombre seulement </i>
-              </p>
-            ) : filteredById.length === 0 ? null : (
+              {findbyId === "" ? (
+                <p>
+                  <i>nombre seulement</i>
+                </p>
+              ) : (
               <ul className="search-list">
-                {filteredById.length === 0 && findbyId !== "" ? (
+                {findbyId && filteredById.length === 0 ? (
                   <p>Aucun résultat</p>
                 ) : (
                   filteredById.map((p: poketype) => (

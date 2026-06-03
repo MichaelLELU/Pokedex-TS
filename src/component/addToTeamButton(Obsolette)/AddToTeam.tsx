@@ -1,4 +1,4 @@
-import { useTeam } from "../../context/TeamContext";
+import { useTeam } from "../../context/TeamContext(Obsolette)";
 import "./AddToTeam.css";
 
 type AddToTeamButtonProps = {

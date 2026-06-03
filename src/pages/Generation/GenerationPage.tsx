@@ -34,6 +34,9 @@ export default function GenerationPage() {
     case "8":
       generationName = "Galar";
       break;
+    case "9":
+      generationName = "Paldea";
+      break;
   }
 
 

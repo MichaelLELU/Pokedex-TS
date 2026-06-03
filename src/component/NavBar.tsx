@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Sun, Moon, Dices, House, ChevronDown,Users } from "lucide-react";
+import { Sun, Moon, House, ChevronDown } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
-import { useTeam } from "../context/TeamContext";
+import { useTeam } from "../context/TeamContext(Obsolette)";
 import Types from "./Types";
 
 interface NavBarProps {
@@ -17,7 +17,6 @@ export default function NavBar({ mode, setMode }: NavBarProps) {
     setMode(!mode);
   };
 
-const { team } = useTeam();
 
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -59,16 +58,6 @@ const { team } = useTeam();
               </Link>
             </li>
             <li>
-              <Link to="/teambuilder" className="nav-link">
-                Équipe aléatoire <Dices />
-              </Link>
-            </li>
-            <li>
-              <Link to="/team" className="nav-link">
-                Équipe {team.length > 0 ? `(${team.length})` : ""} <Users />
-              </Link>
-            </li>
-            <li>
               <label className="nav-link">
                 Générations
                 <select
@@ -85,6 +74,7 @@ const { team } = useTeam();
                   <option value="/generation/6">6 (Kalos)</option>
                   <option value="/generation/7">7 (Alola)</option>
                   <option value="/generation/8">8 (Galar)</option>
+                  <option value="/generation/9">9 (Paldea)</option>
                 </select>
               </label>
             </li>

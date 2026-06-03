@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ShieldCheck, AlertTriangle, Minus, Shield, ShieldAlert } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useTeam } from "../../context/TeamContext";
+import { useTeam } from "../../context/TeamContext(Obsolette)";
 import "./CoverageTable.css";
 
 const TEAM_KEY = "pokemonTeamIds";
