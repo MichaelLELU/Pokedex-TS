@@ -4,7 +4,7 @@ import axios from "axios";
 import { PanelTopOpen, PanelTopClose } from "lucide-react";
 
 export default function Types() {
-interface dataType {
+interface PokemonTypeData {
   name: {
     fr: string;
     en: string;
@@ -13,7 +13,7 @@ interface dataType {
   sprites: string;
 }
 
-  const [dataType, setDataType] = useState<dataType[]>([]);
+  const [dataType, setDataType] = useState<PokemonTypeData[]>([]);
   const [show, setShow] = useState(false);
 
   const toggleOnClick = () => {
