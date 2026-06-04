@@ -1,14 +1,7 @@
-export type StatT = {
-  HP: number;
-  attack: number;
-  defense: number;
-  special_attack: number;
-  special_defense: number;
-  speed: number;
-};
+import type { Stats as StatsType } from "../types/stats";
 
 type StatsProps = {
-  stats: StatT;
+  stats: StatsType;
 };
 
 export default function Stats({ stats }: StatsProps) {
@@ -44,20 +37,20 @@ export default function Stats({ stats }: StatsProps) {
         {Object.keys(stats).map((key) => (
           <tr key={key}>
             <td>{replaceStatName(key)}</td>
-            {stats[key as keyof StatT] >= 95 ? (
+            {stats[key as keyof StatsType] >= 95 ? (
               <td>
                 <strong style={{ color: "green" }}>
-                  {stats[key as keyof StatT]}
+                  {stats[key as keyof StatsType]}
                 </strong>
               </td>
-            ) : stats[key as keyof StatT] >= 65 ? (
+            ) : stats[key as keyof StatsType] >= 65 ? (
               <td>
                 <strong style={{ color: "orange" }}>
-                  {stats[key as keyof StatT]}
+                  {stats[key as keyof StatsType]}
                 </strong>
               </td>
             ) : (
-              <td style={{ color: "red" }}>{stats[key as keyof StatT]}</td>
+              <td style={{ color: "red" }}>{stats[key as keyof StatsType]}</td>
             )}
           </tr>
         ))}

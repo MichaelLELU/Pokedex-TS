@@ -1,14 +1,15 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import PokemonCard, { poketype } from "../../components/PokemonCard/PokemonCard";
+import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import SearchBar from "../../components/SearchBar";
+
+import type { Pokemon } from "../../types/pokemon";
 
 type GenerationParams = { id?: string };
 
 export default function GenerationPage() {
   const { id } = useParams<GenerationParams>();
-  const pokemons = useLoaderData() as poketype[];
+  const pokemons = useLoaderData() as Pokemon[];
 
-  // On traduit le numéro en nom lisible
   let generationName = "Inconnue";
   switch (id) {
     case "1":

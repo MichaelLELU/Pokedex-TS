@@ -3,23 +3,20 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import pokeball from "../assets/pokeball.svg";
 import ToggleBtn from "./ToggleBtn/ToggleBtn";
+import type { PokemonSearch } from "../types/pokemon";
 
-type poketype = {
-  id: number;
-  name: string;
-  sprite: string;
-};
+
 
 interface SearchBarProps {
-  pokemons: poketype[];
+  pokemons: PokemonSearch[];
 }
 
 export default function SearchBar({ pokemons }: SearchBarProps) {
   const [toggle, setToggle] = useState(false);
   const [searchItem, setSearchItem] = useState("");
   const [findbyId, setFindById] = useState<number | "">("");
-  const [filteredP, setFilteredP] = useState<poketype[]>([]);
-  const [filteredById, setFilteredById] = useState<poketype[]>([]);
+  const [filteredP, setFilteredP] = useState<PokemonSearch[]>([]);
+  const [filteredById, setFilteredById] = useState<PokemonSearch[]>([]);
 
   const handleInputChangeN = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numberTerm = e.target.value ? parseInt(e.target.value) : "";

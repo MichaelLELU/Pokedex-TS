@@ -3,19 +3,11 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import pokeball from "../../assets/pokeball.svg";
 import "./PokemonCard.css";
+import type { Pokemon } from "../../types/pokemon";
 
 interface PokemonCardProps {
-  creature: poketype; // Typage du prop pokemon
+  creature: Pokemon;
 }
-
-export type poketype = {
-  id: number;
-  name: string;
-  pokedexId: number;
-  image: string;
-  apiTypes: { name: string; image: string }[];
-  apiGeneration: number;
-};
 
 export default function PokemonCard({ creature }: PokemonCardProps) {
   const Pokemon = creature;

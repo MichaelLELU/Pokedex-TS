@@ -1,25 +1,14 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useState } from "react";
 import "./DetailsPage.css";
-import Stats, { StatT } from "../../components/Stats";
+import Stats from "../../components/Stats";
 import ToggleBtn from "../../components/ToggleBtn/ToggleBtn";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
+import type { PokemonDetails } from "../../types/pokemonDetails";
 
-
-interface Pokemon {
-  name: string;
-  pokedexId: number;
-  image: string;
-  shinyImage: string;
-  apiGeneration: number;
-  apiTypes: { name: string; image: string }[];
-  apiEvolutions: { name: string; pokedexId: number }[];
-  apiPreEvolution: { name: string; pokedexId: number; } | "none";
-  stats: StatT;
-}
 
   export default function DetailsPage() {
-  const pokemon = useLoaderData() as Pokemon;
+  const pokemon = useLoaderData() as PokemonDetails;
   const [isShiny, setIsShiny] = useState(false);
 
   const displayedImage = isShiny && pokemon.shinyImage

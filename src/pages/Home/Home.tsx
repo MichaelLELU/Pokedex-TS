@@ -1,10 +1,13 @@
 import { useLoaderData } from "react-router-dom";
-import PokemonCard, { poketype } from "../../components/PokemonCard/PokemonCard";
-import "./Home.css";
+import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import SearchBar from "../../components/SearchBar";
 
+import type { Pokemon } from "../../types/pokemon";
+import "./Home.css";
+
+
 export default function Home() {
-  const dataPokemon = useLoaderData() as poketype[];
+  const dataPokemon = useLoaderData() as Pokemon[];
 
   return (
     <>
