@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import PokemonCard, { poketype } from "../../component/PokemonCard";
+import PokemonCard, { poketype } from "../../components/PokemonCard/PokemonCard";
+import SearchBar from "../../components/SearchBar";
 
 type GenerationParams = { id?: string };
 
@@ -48,7 +49,13 @@ export default function GenerationPage() {
         </strong>{" "}
         : {pokemons.length} Pokémon
       </h1>
-
+              <SearchBar
+                pokemons={pokemons.map((p) => ({
+                  id: p.id,
+                  name: p.name,
+                  sprite: p.image,
+                }))}
+              />
       <div className="pokemon-container">
         {pokemons.map((p) => (
           <PokemonCard key={p.id} creature={p} />

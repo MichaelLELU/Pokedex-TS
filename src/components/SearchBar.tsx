@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import ToggleBtn from "./ToggleBtn";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import pokeball from "../assets/pokeball.svg";
+import ToggleBtn from "./ToggleBtn/ToggleBtn";
 
 type poketype = {
   id: number;
@@ -9,50 +10,26 @@ type poketype = {
   sprite: string;
 };
 
-export default function SearchBar() {
-  const [toggle, setToggle] = useState(false) as [
-    boolean,
-    (toggle: boolean) => void
-  ];
+interface SearchBarProps {
+  pokemons: poketype[];
+}
+
+export default function SearchBar({ pokemons }: SearchBarProps) {
+  const [toggle, setToggle] = useState(false);
   const [searchItem, setSearchItem] = useState("");
   const [findbyId, setFindById] = useState<number | "">("");
-  const [data, setData] = useState<poketype[]>([]);
   const [filteredP, setFilteredP] = useState<poketype[]>([]);
   const [filteredById, setFilteredById] = useState<poketype[]>([]);
-
-  const pokemons = useMemo(() => {
-    const fetchPokemons = async () => {
-      try {
-        return await axios
-          .get("https://tyradex.app/api/v1/pokemon")
-          .then((res) =>
-            res.data
-              .filter((pokemon: any) => pokemon.pokedex_id)
-              .map((pokemon: any) => ({
-                id: pokemon.pokedex_id,
-                name: pokemon.name.fr,
-                sprite: pokemon.sprites?.regular || "",
-              }))
-          );
-      } catch (error) {
-        console.error(error);
-        return [];
-      }
-    };
-
-    return fetchPokemons();
-  }, []);
-
-  useEffect(() => {
-    pokemons.then((res) => setData(res));
-  }, [pokemons]);
 
   const handleInputChangeN = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numberTerm = e.target.value ? parseInt(e.target.value) : "";
     setFindById(numberTerm);
 
     if (numberTerm) {
-      const filteredItemsById = data.filter((p) => p.id === numberTerm);
+      const filteredItemsById = pokemons.filter(
+        (p) => p.id === numberTerm
+      );
+
       setFilteredById(filteredItemsById);
     } else {
       setFilteredById([]);
@@ -63,9 +40,9 @@ export default function SearchBar() {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
 
-  const filteredItems = data.filter((p) =>
-    p.name?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    const filteredItems = pokemons.filter((p) =>
+      p.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     setFilteredP(filteredItems);
   };
@@ -73,13 +50,20 @@ export default function SearchBar() {
   return (
     <>
       <div className="search-by">
-        <ToggleBtn toggle={toggle} setToggle={setToggle} />
+        <ToggleBtn
+          toggle={toggle}
+          setToggle={setToggle}
+          leftLabel="NOM"
+          rightLabel="ID"
+        />
       </div>
+
       <div className="search-container">
         {toggle === false ? (
           <div className="search-comp">
             <label htmlFor="name">
               <p>Rechercher par Nom</p>
+
               <input
                 type="text"
                 value={searchItem}
@@ -88,23 +72,36 @@ export default function SearchBar() {
                 id="search-input"
               />
             </label>
+
             {searchItem.length <= 2 ? (
               <p>
                 <i>3 caractères min.</i>
               </p>
             ) : (
               <ul className="search-list">
-                {filteredP.length === 0 ? <p>Aucun résultat</p> : null}
-                {filteredP.map((p: poketype) => (
+                {filteredP.length === 0 ? (
+                  <p>Aucun résultat</p>
+                ) : null}
+
+                {filteredP.map((p) => (
                   <Link to={`/pokemon/${p.id}`} key={p.id}>
                     <li className="search-result">
                       {p.name}
+
                       <p>{p.id}</p>
-                      <img
+
+                      <LazyLoadImage
                         className="sprite-search"
                         src={p.sprite}
                         alt={`sprite of ${p.name}`}
-                        loading="lazy"
+                        placeholderSrc={pokeball}
+                        placeholder={
+                          <img
+                            src={pokeball}
+                            className="loading-pokeball"
+                            alt="loading"
+                          />
+                        }
                       />
                     </li>
                   </Link>
@@ -116,6 +113,7 @@ export default function SearchBar() {
           <div className="search-comp">
             <label htmlFor="id">
               <p>Rechercher par ID</p>
+
               <input
                 type="number"
                 value={findbyId}
@@ -125,24 +123,32 @@ export default function SearchBar() {
               />
             </label>
 
-              {findbyId === "" ? (
-                <p>
-                  <i>nombre seulement</i>
-                </p>
-              ) : (
+            {findbyId === "" ? (
+              <p>
+                <i>nombre seulement</i>
+              </p>
+            ) : (
               <ul className="search-list">
-                {findbyId && filteredById.length === 0 ? (
+                {filteredById.length === 0 ? (
                   <p>Aucun résultat</p>
                 ) : (
-                  filteredById.map((p: poketype) => (
+                  filteredById.map((p) => (
                     <Link to={`/pokemon/${p.id}`} key={p.id}>
                       <li className="search-result">
                         {p.name}
-                        <img
+
+                        <LazyLoadImage
                           className="sprite-search"
                           src={p.sprite}
                           alt={`sprite of ${p.name}`}
-                          loading="lazy"
+                          placeholderSrc={pokeball}
+                          placeholder={
+                            <img
+                              src={pokeball}
+                              className="loading-pokeball"
+                              alt="loading"
+                            />
+                          }
                         />
                       </li>
                     </Link>

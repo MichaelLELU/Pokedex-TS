@@ -43,20 +43,33 @@
   height: 500px;
 }
 
+.shiny-button {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  background-color: var(--background);
+  border: 2px solid var(--background-inverse);
+  color: var(--link-color);
+  border-radius: 15px;
+  cursor: pointer;
+}
+.shiny-button:hover {
+  border: 3px solid var(--link-color);
+}
+
 .type-button-container {
   display: flex;
   justify-content: center;
   margin-top: 3.5rem;
   gap: 1em;
   width: 150px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .button-type {
   display: flex;
   align-items: center;
   p {
-    margin: 0;
+    margin-top: 0.5rem;
   }
 }
 
@@ -72,7 +85,6 @@
       text-align: center;
       user-select: none;
 
-      /** On peut ajouter du contenu avant ou après un élément avec les pseudo-classes "::before" et "::after" */
       &::after {
         content: " :";
       }

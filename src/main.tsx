@@ -85,7 +85,6 @@ const router = createBrowserRouter([
               return {
                 name: pokemon.name.fr,
                 pokedexId: pokemon.pokedex_id,
-                sprite: pokemon.sprites?.regular || "",
                 image: pokemon.sprites?.regular || "",
                 shinyImage: pokemon.sprites?.shiny || "",
                 apiGeneration: pokemon.generation,

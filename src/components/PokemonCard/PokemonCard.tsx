@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import pokeball from "../assets/pokeball.svg";
+import pokeball from "../../assets/pokeball.svg";
 import "./PokemonCard.css";
 
 interface PokemonCardProps {

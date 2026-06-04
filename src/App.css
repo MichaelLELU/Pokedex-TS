@@ -226,6 +226,22 @@ option {
   cursor: pointer;
 }
 
+/* lazy load */
+.loading-pokeball {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* lazy load */
+
 @media screen and (width > 750px) {
   label:has(.styled-select) {
     display: flex;

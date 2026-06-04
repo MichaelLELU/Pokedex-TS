@@ -1,14 +1,14 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useState } from "react";
 import "./DetailsPage.css";
-import Stats, { StatT } from "../../component/Stats";
+import Stats, { StatT } from "../../components/Stats";
+import ToggleBtn from "../../components/ToggleBtn/ToggleBtn";
 import { ArrowBigRightDash, ArrowBigLeftDash } from "lucide-react";
 
 
 interface Pokemon {
   name: string;
   pokedexId: number;
-  sprite: string;
   image: string;
   shinyImage: string;
   apiGeneration: number;
@@ -39,12 +39,6 @@ interface Pokemon {
       <div className="details-container">
         <h1 className="detail-title">
           {pokemon.name}
-          <img
-            className="sprite"
-            src={pokemon.sprite}
-            alt={`sprite of ${pokemon.name}`}
-            loading="lazy"
-          />
         </h1>
         <div className="id-nav">
           {pokemon.pokedexId === 1 ? null : (
@@ -66,14 +60,12 @@ interface Pokemon {
             className="portrait"
           />
 
-                    <button
-            type="button"
-            onClick={() => setIsShiny((prev) => !prev)}
-            className="shiny-button"
-            disabled={!pokemon.shinyImage}
-          >
-            {isShiny ? "Version normale" : "Version shiny"}
-          </button>
+          <ToggleBtn
+            toggle={isShiny}
+            setToggle={setIsShiny}
+            leftLabel="Normal"
+            rightLabel="Shiny ✨"
+          />
 
         <div className="type-button-container">
           {pokemon.apiTypes.map(
