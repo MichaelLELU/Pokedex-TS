@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { API_URL } from "./constants/api";
+import { CACHE_TTL } from "./constants/api";
 import axios from "axios";
 import Home from "./pages/Home/Home.tsx";
 import App from "./App.tsx";
@@ -9,7 +11,7 @@ import TypePage from "./pages/Type/TypePage.tsx";
 import DetailsPage from "./pages/Details/DetailsPage.tsx";
 
 async function getPkmnData() {
-  const cacheTTL = 5 * 24 * 60 * 60 * 1000;
+  const cacheTTL = CACHE_TTL;
   const cachedData = localStorage.getItem("pkmnData");
   const cachedTime = localStorage.getItem("cacheDate");
   const timestamp = Number(cachedTime);
@@ -21,7 +23,7 @@ async function getPkmnData() {
     localStorage.removeItem("cacheDate");
 
     try {
-      return axios.get("https://tyradex.app/api/v1/pokemon").then((res) => {
+      return axios.get(`${API_URL}/pokemon`).then((res) => {
         const formattedData = res.data
           .filter((pokemon: any) => pokemon.pokedex_id && pokemon.name?.fr)
           .map((pokemon: any) => ({
@@ -78,7 +80,7 @@ const router = createBrowserRouter([
         element: <DetailsPage />,
         loader: ({ params }) => {
           return axios
-            .get(`https://tyradex.app/api/v1/pokemon/${params.id}`)
+            .get(`${API_URL}/pokemon/${params.id}`)
             .then((res) => {
               const pokemon = res.data;
 
@@ -114,7 +116,7 @@ const router = createBrowserRouter([
             element: <GenerationPage />,
             loader: ({ params }) => {
               return axios
-                .get(`https://tyradex.app/api/v1/gen/${params.id}`)
+                .get((`${API_URL}/gen/${params.id}`))
                 .then((res) => {
                   return res.data.map((pokemon: any) => ({
                     id: pokemon.pokedex_id,

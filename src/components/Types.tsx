@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../constants/api";
+
 import { PanelTopOpen, PanelTopClose } from "lucide-react";
 
 export default function Types() {
@@ -41,7 +43,7 @@ interface PokemonTypeData {
   }, []);
 
   useEffect(() => {
-    axios.get(`https://tyradex.app/api/v1/types`).then((response) => {
+    axios.get(`${API_URL}/types`).then((response) => {
       setDataType(
   response.data.filter(
     (type: any) =>
