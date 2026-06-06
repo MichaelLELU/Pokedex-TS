@@ -21,4 +21,5 @@ export interface PokemonSearch {
 export interface PokemonEvolution {
   name: string;
   pokedexId: number;
+  condition?: string;
 }

@@ -74,24 +74,38 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
             {pokemon.apiGeneration}
           </Link>
         </p>
+        <div className="pokemon-infos">
+          <p>
+            <strong>Taille :</strong> {pokemon.height}
+          </p>
+
+          <p>
+            <strong>Poids :</strong> {pokemon.weight}
+          </p>
+
+          <p>
+            <strong>Taux de capture :</strong> {pokemon.catchRate}
+          </p>
+        </div>
         <section className="evolutions-container">
           {pokemon.apiEvolutions.length > 0 && (
             <div>
               <h2>Évolution{pokemon.apiEvolutions.length > 1 ? "s" : ""}</h2>
               {pokemon.apiEvolutions.map((evo) => (
                 <Link key={evo.pokedexId} to={`/pokemon/${evo.pokedexId}`}>
-                  <span>{evo.name}</span>
+                  <span>{evo.name} {evo.condition}</span>
                 </Link>
               ))}
             </div>
           )}
-          {typeof pokemon.apiPreEvolution === "string" &&
-          pokemon.apiPreEvolution === "none" ? null : (
+          {pokemon.apiPreEvolution.length > 0 && (
             <div>
-              <h2>Pré-évolution</h2>
-              <Link to={`/pokemon/${pokemon.apiPreEvolution.pokedexId}`}>
-                <span>{pokemon.apiPreEvolution.name}</span>
-              </Link>
+              <h2>Pré-évolution{pokemon.apiPreEvolution.length > 1 ? "s" : ""}</h2>
+              {pokemon.apiPreEvolution.map((evo) => (
+                <Link key={evo.pokedexId} to={`/pokemon/${evo.pokedexId}`}>
+                  <span>{evo.name} {evo.condition}</span>
+                </Link>
+              ))}
             </div>
           )}
         </section>

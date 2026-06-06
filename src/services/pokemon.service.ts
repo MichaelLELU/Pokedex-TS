@@ -1,5 +1,7 @@
 import axios from "axios";
 import { API_URL, CACHE_TTL } from "../constants/api";
+import { mapPokemon } from "../mappers/pokemon.mapper";
+import type { TyradexPokemon } from "../types/tyradex";
 
 export async function getAllPokemons() {
   const cachedData = localStorage.getItem("pkmnData");
@@ -20,20 +22,12 @@ export async function getAllPokemons() {
 
   const res = await axios.get(`${API_URL}/pokemon`);
 
-  const formattedData = res.data
-    .filter((pokemon: any) => pokemon.pokedex_id && pokemon.name?.fr)
-    .map((pokemon: any) => ({
-      id: pokemon.pokedex_id,
-      pokedexId: pokemon.pokedex_id,
-      name: pokemon.name.fr,
-      image: pokemon.sprites?.regular || "",
-      apiTypes:
-        pokemon.types?.map((type: any) => ({
-          name: type.name,
-          image: type.image,
-        })) || [],
-      apiGeneration: pokemon.generation,
-    }));
+const formattedData = res.data
+  .filter(
+    (pokemon: TyradexPokemon) =>
+      pokemon.pokedex_id && pokemon.name?.fr
+  )
+  .map(mapPokemon);
 
   localStorage.setItem(
     "pkmnData",

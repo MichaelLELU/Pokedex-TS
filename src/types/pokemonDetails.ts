@@ -6,6 +6,9 @@ export interface PokemonDetails {
   pokedexId: number;
   image: string;
   shinyImage: string;
+  height: string;
+  weight: string;
+  catchRate: number;
 
   apiGeneration: number;
 
@@ -16,9 +19,7 @@ export interface PokemonDetails {
 
   apiEvolutions: PokemonEvolution[];
 
-  apiPreEvolution:
-    | PokemonEvolution
-    | "none";
+  apiPreEvolution: PokemonEvolution[]
 
   stats: Stats;
 }

@@ -12,6 +12,9 @@ export async function getPokemonById(id: string) {
     image: pokemon.sprites?.regular || "",
     shinyImage: pokemon.sprites?.shiny || "",
     apiGeneration: pokemon.generation,
+    height: pokemon.height,
+    weight: pokemon.weight,
+    catchRate: pokemon.catch_rate,
 
     apiTypes:
       pokemon.types?.map((type: any) => ({
@@ -23,14 +26,15 @@ export async function getPokemonById(id: string) {
       pokemon.evolution?.next?.map((evo: any) => ({
         name: evo.name,
         pokedexId: evo.pokedex_id,
+        condition: evo.condition,
       })) || [],
 
-    apiPreEvolution: pokemon.evolution?.pre?.[0]
-      ? {
-          name: pokemon.evolution.pre[0].name,
-          pokedexId: pokemon.evolution.pre[0].pokedex_id,
-        }
-      : "none",
+    apiPreEvolution: 
+      pokemon.evolution?.pre?.map((evo: any) => ({
+        name: evo.name,
+        pokedexId: evo.pokedex_id,
+        condition: evo.condition,
+      })) || [],
 
     stats: pokemon.stats,
   };
