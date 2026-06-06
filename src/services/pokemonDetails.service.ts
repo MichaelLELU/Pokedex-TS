@@ -43,6 +43,13 @@ export async function getPokemonById(id: string) {
     shinyImage: mega.sprites?.shiny || "",
   })) || [],
 
+  gmax: pokemon.sprites?.gmax
+  ? {
+      image: pokemon.sprites.gmax.regular,
+      shinyImage: pokemon.sprites.gmax.shiny,
+    }
+  : null,
+
     stats: pokemon.stats,
   };
 }

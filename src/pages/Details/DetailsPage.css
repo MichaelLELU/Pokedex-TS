@@ -101,6 +101,15 @@
   object-fit: contain;
 }
 
+.gmax-container {
+  margin-top: 2rem;
+  text-align: center;
+   h2 {
+    margin-bottom: 1rem;
+    margin-top: -3rem;
+   }
+}
+
 .evolutions-container {
   margin-top: 2rem;
   gap: 2rem;

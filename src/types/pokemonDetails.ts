@@ -25,7 +25,12 @@ export interface PokemonDetails {
   orbe: string;
   image: string;
   shinyImage: string;
-}[];
+  }[];
+
+  gmax: {
+    image: string;
+    shinyImage: string;
+  } | null;
 
   stats: Stats;
 }

@@ -88,7 +88,7 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
         <div className="mega-container">
           {pokemon.megaEvolutions.map((mega) => (
             <div key={mega.orbe} className="mega-card">
-              <h3>{mega.orbe}</h3>
+              <h4>{mega.orbe}</h4>
 
               <img
                 src={
@@ -101,6 +101,21 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
               />
             </div>
           ))}
+        </div>
+      )}
+            {pokemon.gmax && (
+        <div className="gmax-container">
+          <h2>Gigamax</h2>
+
+          <img
+            src={
+              isShiny
+                ? pokemon.gmax.shinyImage
+                : pokemon.gmax.image
+            }
+            alt={`${pokemon.name} Gigamax`}
+            className="gmax-image"
+          />
         </div>
       )}
         <section className="evolutions-container">
