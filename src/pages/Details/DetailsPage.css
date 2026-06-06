@@ -45,7 +45,7 @@
 }
 
 .shiny-button {
-  padding: 0.5em 1em;
+  padding: 1em 2em;
   background-color: var(--background);
   border: 2px solid var(--background-inverse);
   color: var(--link-color);
@@ -75,12 +75,30 @@
 }
 
 .pokemon-infos {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .pokemon-infos p {
   margin: 0.4rem 0;
+}
+
+.mega-container {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.mega-card {
+  margin-bottom: 2rem;
+}
+
+.mega-image {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
 }
 
 .evolutions-container {
@@ -150,4 +168,10 @@ span {
     width: 320px;
     height: 320px;
   }
+}
+
+@media screen and (max-width: 480px) {
+.mega-container {
+  flex-direction: column;
+}
 }

@@ -52,7 +52,7 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
           <ToggleBtn
             toggle={isShiny}
             setToggle={setIsShiny}
-            leftLabel="Normal"
+            leftLabel="  Normal"
             rightLabel="Shiny ✨"
           />
 
@@ -82,11 +82,27 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
           <p>
             <strong>Poids :</strong> {pokemon.weight}
           </p>
-
-          <p>
-            <strong>Taux de capture :</strong> {pokemon.catchRate}
-          </p>
         </div>
+        <h2>Méga-Évolutions</h2>
+              {pokemon.megaEvolutions.length > 0 && (
+        <div className="mega-container">
+          {pokemon.megaEvolutions.map((mega) => (
+            <div key={mega.orbe} className="mega-card">
+              <h3>{mega.orbe}</h3>
+
+              <img
+                src={
+                  isShiny
+                    ? mega.shinyImage
+                    : mega.image
+                }
+                alt={mega.orbe}
+                className="mega-image"
+              />
+            </div>
+          ))}
+        </div>
+      )}
         <section className="evolutions-container">
           {pokemon.apiEvolutions.length > 0 && (
             <div>

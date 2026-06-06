@@ -21,5 +21,11 @@ export interface PokemonDetails {
 
   apiPreEvolution: PokemonEvolution[]
 
+  megaEvolutions: {
+  orbe: string;
+  image: string;
+  shinyImage: string;
+}[];
+
   stats: Stats;
 }

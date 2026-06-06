@@ -36,6 +36,13 @@ export async function getPokemonById(id: string) {
         condition: evo.condition,
       })) || [],
 
+      megaEvolutions:
+  pokemon.evolution?.mega?.map((mega: any) => ({
+    orbe: mega.orbe,
+    image: mega.sprites?.regular || "",
+    shinyImage: mega.sprites?.shiny || "",
+  })) || [],
+
     stats: pokemon.stats,
   };
 }
