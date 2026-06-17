@@ -87,8 +87,21 @@
 .mega-container {
   margin-top: 2rem;
   text-align: center;
-  display: flex;
   align-items: center;
+
+     h2 {
+    margin-bottom: 1rem;
+    margin-top: -3rem;
+    font-size: 2.5rem;
+    text-decoration: underline;
+   }
+}
+
+.mega-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .mega-card {
@@ -107,6 +120,8 @@
    h2 {
     margin-bottom: 1rem;
     margin-top: -3rem;
+    font-size: 2.5rem;  
+    text-decoration: underline;
    }
 }
 

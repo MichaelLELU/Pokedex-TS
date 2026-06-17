@@ -83,9 +83,11 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
             <strong>Poids :</strong> {pokemon.weight}
           </p>
         </div>
-        <h2>Méga-Évolutions</h2>
+
               {pokemon.megaEvolutions.length > 0 && (
         <div className="mega-container">
+          <h2>Méga-Évolutions</h2>
+          <div className="mega-cards">
           {pokemon.megaEvolutions.map((mega) => (
             <div key={mega.orbe} className="mega-card">
               <h4>{mega.orbe}</h4>
@@ -102,7 +104,9 @@ import type { PokemonDetails } from "../../types/pokemonDetails";
             </div>
           ))}
         </div>
+        </div>
       )}
+      
             {pokemon.gmax && (
         <div className="gmax-container">
           <h2>Gigamax</h2>
